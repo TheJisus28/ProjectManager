@@ -47,6 +47,7 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
         login_lbl_usuario4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        proyectos_btn_regresar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,36 +158,48 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        proyectos_btn_regresar1.setBackground(new java.awt.Color(255, 255, 255));
+        proyectos_btn_regresar1.setText("<<<");
+        proyectos_btn_regresar1.setPreferredSize(new java.awt.Dimension(100, 30));
+        proyectos_btn_regresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proyectos_btn_regresar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 50, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(login_lbl_usuario4)
+                            .addComponent(login_lbl_usuario1)
                             .addGap(18, 18, 18)
-                            .addComponent(jScrollPane1))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(login_txt_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(login_lbl_usuario)
+                            .addGap(18, 18, 18)
+                            .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(login_lbl_usuario2)
+                            .addGap(18, 18, 18)
+                            .addComponent(login_txt_usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(login_lbl_usuario3)
+                            .addGap(18, 18, 18)
+                            .addComponent(login_txt_usuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(login_lbl_usuario4)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(login_lbl_usuario1)
-                                .addGap(18, 18, 18)
-                                .addComponent(login_txt_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(login_lbl_usuario)
-                                .addGap(18, 18, 18)
-                                .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(login_lbl_usuario2)
-                                .addGap(18, 18, 18)
-                                .addComponent(login_txt_usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(login_lbl_usuario3)
-                                .addGap(18, 18, 18)
-                                .addComponent(login_txt_usuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(124, 124, 124)
+                                .addComponent(proyectos_btn_regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1))))
                 .addGap(56, 56, 56)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -215,7 +228,9 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
                     .addComponent(login_lbl_usuario4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proyectos_btn_regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
 
@@ -261,6 +276,14 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_login_txt_usuario3ActionPerformed
 
+    private void proyectos_btn_regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectos_btn_regresar1ActionPerformed
+        // Acciones del boton cerrar sesion
+
+       ProyectosUI ProyectosUi = new ProyectosUI();
+       ProyectosUi.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_proyectos_btn_regresar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,5 +308,6 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
     private javax.swing.JTextField login_txt_usuario2;
     private javax.swing.JTextField login_txt_usuario3;
     private javax.swing.JButton proyectos_btn_regresar;
+    private javax.swing.JButton proyectos_btn_regresar1;
     // End of variables declaration//GEN-END:variables
 }

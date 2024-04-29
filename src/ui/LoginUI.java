@@ -6,7 +6,7 @@
 package ui;
 
 // mis paquetes
-import utils.Placeholder;
+import utils.Utilidades;
 
 /**
  *
@@ -164,7 +164,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        utils.Placeholder.addPlaceholder(login_txt_usuario, "emailusuario@projects.com");
+        utils.Utilidades.agregarPlaceholder(login_txt_usuario, " Ingrese su cedula");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

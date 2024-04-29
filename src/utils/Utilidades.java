@@ -8,15 +8,17 @@ package utils;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author JESUS DANIEL
  */
-public class Placeholder {
+public class Utilidades {
     
-    
-    public static void addPlaceholder(javax.swing.JTextField textField, String placeholder) {
+    public static void agregarPlaceholder(javax.swing.JTextField textField, String placeholder) {
         textField.setText(placeholder);
         textField.setForeground(Color.GRAY); // Color del placeholder
         textField.addFocusListener(new FocusListener() {
@@ -37,4 +39,19 @@ public class Placeholder {
             }
         });
     }
+    
+    public static void mostrarVentana(String mensaje, String titulo) {
+            JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
+        public static String obtenerTextoRadioButtonSeleccionado(ButtonGroup buttonGroup) {
+            ButtonModel selectedButtonModel = buttonGroup.getSelection();
+            if (selectedButtonModel != null) {
+                return selectedButtonModel.getActionCommand();
+            }
+            return null;
+    }
+    
+    
 }

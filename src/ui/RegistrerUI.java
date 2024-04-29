@@ -6,8 +6,8 @@
 package ui;
 
 // mis paquetes
-import utils.Placeholder;
-
+import logic.RegisterLogic;
+import utils.Utilidades;
 /**
  *
  * @author JESUS DANIEL
@@ -36,25 +36,26 @@ public class RegistrerUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        login_txt_usuario = new javax.swing.JTextField();
+        registrar_txt_nombre = new javax.swing.JTextField();
         login_lbl_usuario = new javax.swing.JLabel();
         login_lbl_usuario1 = new javax.swing.JLabel();
-        login_txt_usuario1 = new javax.swing.JTextField();
+        registrar_txt_edad = new javax.swing.JTextField();
         login_lbl_usuario2 = new javax.swing.JLabel();
         login_lbl_usuario3 = new javax.swing.JLabel();
-        login_txt_usuario3 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        registrar_txt_titulo = new javax.swing.JTextField();
+        login_jRadioButton_masculino = new javax.swing.JRadioButton();
+        login_jRadioButton_femenino = new javax.swing.JRadioButton();
+        login_jRadioButton_noBinario = new javax.swing.JRadioButton();
         login_lbl_usuario4 = new javax.swing.JLabel();
-        login_txt_usuario4 = new javax.swing.JTextField();
+        registrar_txt_dependencia = new javax.swing.JTextField();
         login_lbl_usuario5 = new javax.swing.JLabel();
-        registrarse_txt_email = new javax.swing.JTextField();
+        registrar_txt_cedula = new javax.swing.JTextField();
         login_lbl_usuario6 = new javax.swing.JLabel();
-        login_txt_usuario6 = new javax.swing.JTextField();
-        login_txt_usuario7 = new javax.swing.JTextField();
+        registrar_txt_contrasegnia = new javax.swing.JTextField();
+        registrar_txt_validarContrasegnia = new javax.swing.JTextField();
         login_lbl_usuario7 = new javax.swing.JLabel();
-        registrarse_btn_registrarse = new javax.swing.JButton();
+        registrar_btn_registrarte = new javax.swing.JButton();
+        proyectos_btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(771, 452));
@@ -106,9 +107,9 @@ public class RegistrerUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        login_txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuarioActionPerformed(evt);
+                registrar_txt_nombreActionPerformed(evt);
             }
         });
 
@@ -118,9 +119,9 @@ public class RegistrerUI extends javax.swing.JFrame {
         login_lbl_usuario1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario1.setText("Edad:");
 
-        login_txt_usuario1.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_edad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario1ActionPerformed(evt);
+                registrar_txt_edadActionPerformed(evt);
             }
         });
 
@@ -130,78 +131,87 @@ public class RegistrerUI extends javax.swing.JFrame {
         login_lbl_usuario3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario3.setText("Titulo:");
 
-        login_txt_usuario3.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_titulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario3ActionPerformed(evt);
+                registrar_txt_tituloActionPerformed(evt);
             }
         });
 
-        registrar_buttonGroup_sexo.add(jRadioButton1);
-        jRadioButton1.setText("Masculino");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        registrar_buttonGroup_sexo.add(login_jRadioButton_masculino);
+        login_jRadioButton_masculino.setText("Masculino");
+        login_jRadioButton_masculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                login_jRadioButton_masculinoActionPerformed(evt);
             }
         });
 
-        registrar_buttonGroup_sexo.add(jRadioButton2);
-        jRadioButton2.setText("Femenino");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        registrar_buttonGroup_sexo.add(login_jRadioButton_femenino);
+        login_jRadioButton_femenino.setText("Femenino");
+        login_jRadioButton_femenino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                login_jRadioButton_femeninoActionPerformed(evt);
             }
         });
 
-        registrar_buttonGroup_sexo.add(jRadioButton3);
-        jRadioButton3.setText("No binario");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        registrar_buttonGroup_sexo.add(login_jRadioButton_noBinario);
+        login_jRadioButton_noBinario.setText("No binario");
+        login_jRadioButton_noBinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                login_jRadioButton_noBinarioActionPerformed(evt);
             }
         });
 
         login_lbl_usuario4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario4.setText("Dependencia:");
 
-        login_txt_usuario4.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_dependencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario4ActionPerformed(evt);
+                registrar_txt_dependenciaActionPerformed(evt);
             }
         });
 
         login_lbl_usuario5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        login_lbl_usuario5.setText("Email:");
+        login_lbl_usuario5.setText("Cedula:");
 
-        registrarse_txt_email.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarse_txt_emailActionPerformed(evt);
+                registrar_txt_cedulaActionPerformed(evt);
             }
         });
 
         login_lbl_usuario6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario6.setText("Contraseña:");
 
-        login_txt_usuario6.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_contrasegnia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario6ActionPerformed(evt);
+                registrar_txt_contrasegniaActionPerformed(evt);
             }
         });
 
-        login_txt_usuario7.addActionListener(new java.awt.event.ActionListener() {
+        registrar_txt_validarContrasegnia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario7ActionPerformed(evt);
+                registrar_txt_validarContrasegniaActionPerformed(evt);
             }
         });
 
         login_lbl_usuario7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario7.setText("Validar constraseña");
 
-        registrarse_btn_registrarse.setBackground(new java.awt.Color(255, 255, 255));
-        registrarse_btn_registrarse.setText("Registrarte");
-        registrarse_btn_registrarse.setPreferredSize(new java.awt.Dimension(100, 30));
-        registrarse_btn_registrarse.addActionListener(new java.awt.event.ActionListener() {
+        registrar_btn_registrarte.setBackground(new java.awt.Color(255, 255, 255));
+        registrar_btn_registrarte.setText("Registrarte");
+        registrar_btn_registrarte.setPreferredSize(new java.awt.Dimension(100, 30));
+        registrar_btn_registrarte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarse_btn_registrarseActionPerformed(evt);
+                registrar_btn_registrarteActionPerformed(evt);
+            }
+        });
+
+        proyectos_btn_regresar.setBackground(new java.awt.Color(255, 255, 255));
+        proyectos_btn_regresar.setText("<<<");
+        proyectos_btn_regresar.setPreferredSize(new java.awt.Dimension(100, 30));
+        proyectos_btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proyectos_btn_regresarActionPerformed(evt);
             }
         });
 
@@ -209,7 +219,7 @@ public class RegistrerUI extends javax.swing.JFrame {
         jPanel_registrarse.setLayout(jPanel_registrarseLayout);
         jPanel_registrarseLayout.setHorizontalGroup(
             jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_registrarseLayout.createSequentialGroup()
+            .addGroup(jPanel_registrarseLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(login_lbl_usuario)
@@ -222,20 +232,23 @@ public class RegistrerUI extends javax.swing.JFrame {
                     .addComponent(login_lbl_usuario7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registrarse_btn_registrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(login_txt_usuario4)
                     .addGroup(jPanel_registrarseLayout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(registrar_btn_registrarte, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2)
+                        .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registrar_txt_dependencia)
+                    .addGroup(jPanel_registrarseLayout.createSequentialGroup()
+                        .addComponent(login_jRadioButton_masculino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(login_jRadioButton_femenino)
                         .addGap(58, 58, 58)
-                        .addComponent(jRadioButton3))
-                    .addComponent(login_txt_usuario1)
-                    .addComponent(login_txt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                    .addComponent(login_txt_usuario3)
-                    .addComponent(registrarse_txt_email)
-                    .addComponent(login_txt_usuario6)
-                    .addComponent(login_txt_usuario7))
+                        .addComponent(login_jRadioButton_noBinario))
+                    .addComponent(registrar_txt_edad)
+                    .addComponent(registrar_txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                    .addComponent(registrar_txt_titulo)
+                    .addComponent(registrar_txt_cedula)
+                    .addComponent(registrar_txt_contrasegnia)
+                    .addComponent(registrar_txt_validarContrasegnia))
                 .addGap(61, 61, 61)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -245,44 +258,49 @@ public class RegistrerUI extends javax.swing.JFrame {
             .addGroup(jPanel_registrarseLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrar_txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrar_txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_lbl_usuario2)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(login_jRadioButton_masculino, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_jRadioButton_femenino, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_jRadioButton_noBinario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_lbl_usuario3)
-                    .addComponent(login_txt_usuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registrar_txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_lbl_usuario4)
-                    .addComponent(login_txt_usuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registrar_txt_dependencia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_lbl_usuario5)
-                    .addComponent(registrarse_txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registrar_txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrar_txt_contrasegnia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrar_txt_validarContrasegnia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(registrarse_btn_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel_registrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registrar_btn_registrarte, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36))
         );
 
-        utils.Placeholder.addPlaceholder(registrarse_txt_email, "emailusuario@projects.com");
+        login_jRadioButton_masculino.setActionCommand("Masculino");
+        login_jRadioButton_femenino.setActionCommand("Femenino");
+        login_jRadioButton_noBinario.setActionCommand("No binario");
+        utils.Utilidades.agregarPlaceholder(registrar_txt_cedula, "Ej. 1062959671");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -299,54 +317,81 @@ public class RegistrerUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void login_txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuarioActionPerformed
+    private void registrar_txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_nombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuarioActionPerformed
+    }//GEN-LAST:event_registrar_txt_nombreActionPerformed
 
-    private void login_txt_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario1ActionPerformed
+    private void registrar_txt_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_edadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario1ActionPerformed
+    }//GEN-LAST:event_registrar_txt_edadActionPerformed
 
-    private void login_txt_usuario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario3ActionPerformed
+    private void registrar_txt_tituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_tituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario3ActionPerformed
+    }//GEN-LAST:event_registrar_txt_tituloActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void login_jRadioButton_masculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_jRadioButton_masculinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_login_jRadioButton_masculinoActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void login_jRadioButton_femeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_jRadioButton_femeninoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_login_jRadioButton_femeninoActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void login_jRadioButton_noBinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_jRadioButton_noBinarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_login_jRadioButton_noBinarioActionPerformed
 
-    private void login_txt_usuario4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario4ActionPerformed
+    private void registrar_txt_dependenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_dependenciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario4ActionPerformed
+    }//GEN-LAST:event_registrar_txt_dependenciaActionPerformed
 
-    private void registrarse_txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarse_txt_emailActionPerformed
+    private void registrar_txt_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_cedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registrarse_txt_emailActionPerformed
+    }//GEN-LAST:event_registrar_txt_cedulaActionPerformed
 
-    private void login_txt_usuario6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario6ActionPerformed
+    private void registrar_txt_contrasegniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_contrasegniaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario6ActionPerformed
+    }//GEN-LAST:event_registrar_txt_contrasegniaActionPerformed
 
-    private void login_txt_usuario7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario7ActionPerformed
+    private void registrar_txt_validarContrasegniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_txt_validarContrasegniaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario7ActionPerformed
+    }//GEN-LAST:event_registrar_txt_validarContrasegniaActionPerformed
 
-    private void registrarse_btn_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarse_btn_registrarseActionPerformed
+    private void registrar_btn_registrarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrar_btn_registrarteActionPerformed
         // Acciones del boton registrarse
         
-        LoginUI loginUi = new LoginUI();
-        loginUi.setVisible(true);
-        dispose();
+        // Capturar los datos del usuario
+       String nombre = registrar_txt_nombre.getText();
+       String edadText = registrar_txt_edad.getText();
+       String sexo = Utilidades.obtenerTextoRadioButtonSeleccionado(registrar_buttonGroup_sexo);
+       String titulo = registrar_txt_titulo.getText();
+       String dependencia = registrar_txt_dependencia.getText();
+       String cedula = registrar_txt_cedula.getText();
+       String contrasegnia = registrar_txt_contrasegnia.getText();
+       String validarContrasegnia = registrar_txt_validarContrasegnia.getText();
+       
+       // Intentar registrar el usuario
+        int registrado = RegisterLogic.registrarUsuario(nombre, edadText, sexo, titulo, dependencia, cedula, contrasegnia, validarContrasegnia);
+        
+        // Validamos la acción
+        if(registrado == 1) {
+            Utilidades.mostrarVentana("Registro exitoso.", "Registrado");
+            
+            // Regresar al login.
+            LoginUI loginUi = new LoginUI();
+            loginUi.setVisible(true);
+            dispose();
+        }
+    
+    }//GEN-LAST:event_registrar_btn_registrarteActionPerformed
 
-    }//GEN-LAST:event_registrarse_btn_registrarseActionPerformed
+    private void proyectos_btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectos_btn_regresarActionPerformed
+        // Acciones del boton cerrar sesion
+
+        LoginUI LoginUi = new LoginUI();
+        LoginUi.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_proyectos_btn_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,9 +404,9 @@ public class RegistrerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_registrarse;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton login_jRadioButton_femenino;
+    private javax.swing.JRadioButton login_jRadioButton_masculino;
+    private javax.swing.JRadioButton login_jRadioButton_noBinario;
     private javax.swing.JLabel login_lbl_usuario;
     private javax.swing.JLabel login_lbl_usuario1;
     private javax.swing.JLabel login_lbl_usuario2;
@@ -370,14 +415,15 @@ public class RegistrerUI extends javax.swing.JFrame {
     private javax.swing.JLabel login_lbl_usuario5;
     private javax.swing.JLabel login_lbl_usuario6;
     private javax.swing.JLabel login_lbl_usuario7;
-    private javax.swing.JTextField login_txt_usuario;
-    private javax.swing.JTextField login_txt_usuario1;
-    private javax.swing.JTextField login_txt_usuario3;
-    private javax.swing.JTextField login_txt_usuario4;
-    private javax.swing.JTextField login_txt_usuario6;
-    private javax.swing.JTextField login_txt_usuario7;
+    private javax.swing.JButton proyectos_btn_regresar;
+    private javax.swing.JButton registrar_btn_registrarte;
     private javax.swing.ButtonGroup registrar_buttonGroup_sexo;
-    private javax.swing.JButton registrarse_btn_registrarse;
-    private javax.swing.JTextField registrarse_txt_email;
+    private javax.swing.JTextField registrar_txt_cedula;
+    private javax.swing.JTextField registrar_txt_contrasegnia;
+    private javax.swing.JTextField registrar_txt_dependencia;
+    private javax.swing.JTextField registrar_txt_edad;
+    private javax.swing.JTextField registrar_txt_nombre;
+    private javax.swing.JTextField registrar_txt_titulo;
+    private javax.swing.JTextField registrar_txt_validarContrasegnia;
     // End of variables declaration//GEN-END:variables
 }

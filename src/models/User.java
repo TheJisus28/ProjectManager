@@ -11,21 +11,20 @@ package models;
  */
 public class User {
     
-    private int idUser;
+    private String cedula;
     private int edad;
     private String nombre;
     private String sexo;
     private String dependencia;
     private String titulo;
-    private String email;
     private String contrasegnia;
 
-    public int getIdUser() {
-        return idUser;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public int getEdad() {
@@ -66,14 +65,6 @@ public class User {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getContrasegnia() {
