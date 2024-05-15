@@ -7,6 +7,7 @@ package data;
 
 import java.util.HashMap;
 import models.User;
+import utils.Utilidades;
 
 /**
  *
@@ -17,8 +18,11 @@ public class BBDD {
 
     // registrar usuario
     public static int registerUser(String nombre, int edad, String sexo, String dependencia, String titulo, String cedula, String contrasegnia) {
+        
+        // Validamos que el usuario a registrar no se encuentre en la BBDD
         if (usersMap.containsKey(cedula)) {
             // Si la cédula ya existe en el HashMap, retornar -1 indicando error
+            Utilidades.mostrarVentana("Ya existe un usuario registrado con esta cédula", "Error");
             return -1;
         }
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui;
+package ui.users;
 
 // mis paquetes
 import logic.RegisterLogic;
@@ -12,12 +12,12 @@ import utils.Utilidades;
  *
  * @author JESUS DANIEL
  */
-public class RegistrerUI extends javax.swing.JFrame {
+public class UserRegisterUI extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistrerUI
      */
-    public RegistrerUI() {
+    public UserRegisterUI() {
         initComponents();
     }
 
@@ -378,7 +378,7 @@ public class RegistrerUI extends javax.swing.JFrame {
             Utilidades.mostrarVentana("Registro exitoso.", "Registrado");
             
             // Regresar al login.
-            LoginUI loginUi = new LoginUI();
+            UserLoginUI loginUi = new UserLoginUI();
             loginUi.setVisible(true);
             dispose();
         }
@@ -388,7 +388,7 @@ public class RegistrerUI extends javax.swing.JFrame {
     private void proyectos_btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectos_btn_regresarActionPerformed
         // Acciones del boton cerrar sesion
 
-        LoginUI LoginUi = new LoginUI();
+        UserLoginUI LoginUi = new UserLoginUI();
         LoginUi.setVisible(true);
         dispose();
     }//GEN-LAST:event_proyectos_btn_regresarActionPerformed

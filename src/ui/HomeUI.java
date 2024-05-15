@@ -5,6 +5,8 @@
  */
 package ui;
 
+import ui.users.UserLoginUI;
+
 /**
  *
  * @author JESUS DANIEL
@@ -221,7 +223,7 @@ public class HomeUI extends javax.swing.JFrame {
     private void home_btn_cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_cerrarSesionActionPerformed
         // Acciones del boton cerrar sesion
         
-        LoginUI loginUi = new LoginUI();
+        UserLoginUI loginUi = new UserLoginUI();
         loginUi.setVisible(true);
         dispose();
     }//GEN-LAST:event_home_btn_cerrarSesionActionPerformed

@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui;
+package ui.users;
 
 // mis paquetes
+import ui.HomeUI;
 import utils.Utilidades;
 
 /**
  *
  * @author JESUS DANIEL
  */
-public class LoginUI extends javax.swing.JFrame {
+public class UserLoginUI extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginUI
      */
-    public LoginUI() {
+    public UserLoginUI() {
         initComponents();
         login_lbl_usuario.requestFocusInWindow();
     }
@@ -199,7 +200,7 @@ public class LoginUI extends javax.swing.JFrame {
     private void login_btn_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn_registrarseActionPerformed
         // Abrimos la ventana para registrar usuario
         
-        RegistrerUI registerUi = new RegistrerUI();
+        UserRegisterUI registerUi = new UserRegisterUI();
         registerUi.setVisible(true);
         dispose();
     }//GEN-LAST:event_login_btn_registrarseActionPerformed
