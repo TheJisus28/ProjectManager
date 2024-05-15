@@ -188,6 +188,7 @@ public class LoginUI extends javax.swing.JFrame {
     private void login_btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn_ingresarActionPerformed
         // Acciones del boton ingresar
         
+        
         HomeUI homeUi = new HomeUI();
         homeUi.setVisible(true);
         dispose();

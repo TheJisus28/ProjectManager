@@ -13,8 +13,9 @@ import models.User;
  * @author JESUS DANIEL
  */
 public class BBDD {
-     private static HashMap<String, User> usersMap = new HashMap<>(); // HashMap para almacenar usuarios por cédula
+    private static HashMap<String, User> usersMap = new HashMap<>(); // HashMap para almacenar usuarios por cédula
 
+    // registrar usuario
     public static int registerUser(String nombre, int edad, String sexo, String dependencia, String titulo, String cedula, String contrasegnia) {
         if (usersMap.containsKey(cedula)) {
             // Si la cédula ya existe en el HashMap, retornar -1 indicando error
@@ -34,6 +35,7 @@ public class BBDD {
         return 1; // Retornar 1 indicando éxito
     }
     
+    // obtener usuario
     public static User obtenerUsuarioPorCedula(String cedula) {
         return usersMap.get(cedula);
     }
