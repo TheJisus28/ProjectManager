@@ -177,7 +177,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_txt_usuarioActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="Utilidades.agregarPlaceholder(login_txt_usuario, &quot; Ingrese su cedula&quot;);"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ui.utils.UiUtilidades.agregarPlaceholder(login_txt_usuario, &quot; Ingrese su cedula&quot;);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="login_lbl_usuario">

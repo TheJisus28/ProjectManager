@@ -17,7 +17,7 @@ import javax.swing.JPasswordField;
  *
  * @author JESUS DANIEL
  */
-public class Utilidades {
+public class UiUtilidades {
     
     public static void agregarPlaceholder(javax.swing.JTextField textField, String placeholder) {
         textField.setText(placeholder);

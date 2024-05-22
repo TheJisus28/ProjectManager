@@ -2,7 +2,7 @@ package logic.user;
 
 import data.BBDD;
 import models.User;
-import ui.utils.Utilidades;
+import ui.utils.UiUtilidades;
 
 public class LoginLogic {
 
@@ -12,7 +12,7 @@ public class LoginLogic {
         if (user != null && user.getContrasegnia().equals(contrasegnia)) {
             return 1; // Usuario encontrado y contraseña correcta
         } else {
-            Utilidades.mostrarVentana("Credenciales invalidos", "Error");
+            UiUtilidades.mostrarVentana("Credenciales invalidos", "Error");
             return 0; // Usuario no encontrado o contraseña incorrecta
         }
     }

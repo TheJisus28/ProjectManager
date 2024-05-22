@@ -6,6 +6,8 @@
 package ui.proyectos;
 
 import javax.swing.JOptionPane;
+import logic.proyectos.ProyectosCrearLogic;
+import ui.HomeUI;
 
 /**
  *
@@ -16,7 +18,9 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
     /**
      * Creates new form CrearProyecto
      */
-    public ProyectosCrearUI() {
+    private String cedulaUsuario;
+    public ProyectosCrearUI(String cedula) {
+        cedulaUsuario = cedula;
         initComponents();
     }
 
@@ -35,19 +39,21 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        proyectos_btn_regresar = new javax.swing.JButton();
         login_lbl_usuario = new javax.swing.JLabel();
-        login_txt_usuario = new javax.swing.JTextField();
+        crear_proyecto_btn_crear_proyecto = new javax.swing.JButton();
+        crear_proyecto_txt_nombre = new javax.swing.JTextField();
         login_lbl_usuario1 = new javax.swing.JLabel();
-        login_txt_usuario1 = new javax.swing.JTextField();
+        crear_proyecto_txt_fecha_inicio = new javax.swing.JTextField();
         login_lbl_usuario2 = new javax.swing.JLabel();
-        login_txt_usuario2 = new javax.swing.JTextField();
-        login_txt_usuario3 = new javax.swing.JTextField();
+        crear_proyecto_txt_duracion = new javax.swing.JTextField();
+        crear_proyecto_txt_presupuesto = new javax.swing.JTextField();
         login_lbl_usuario3 = new javax.swing.JLabel();
         login_lbl_usuario4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        proyectos_btn_regresar1 = new javax.swing.JButton();
+        crear_proyecto_jTextArea_descripcion = new javax.swing.JTextArea();
+        crear_proyecto_btn_regresar = new javax.swing.JButton();
+        login_lbl_usuario5 = new javax.swing.JLabel();
+        crear_proyecto_txt_id_proyecto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,50 +107,50 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(76, 76, 76)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
 
-        proyectos_btn_regresar.setBackground(new java.awt.Color(255, 255, 255));
-        proyectos_btn_regresar.setText("Crear Proyecto");
-        proyectos_btn_regresar.setPreferredSize(new java.awt.Dimension(100, 30));
-        proyectos_btn_regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proyectos_btn_regresarActionPerformed(evt);
-            }
-        });
-
         login_lbl_usuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario.setText("Nombre:");
 
-        login_txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+        crear_proyecto_btn_crear_proyecto.setBackground(new java.awt.Color(255, 255, 255));
+        crear_proyecto_btn_crear_proyecto.setText("Crear Proyecto");
+        crear_proyecto_btn_crear_proyecto.setPreferredSize(new java.awt.Dimension(100, 30));
+        crear_proyecto_btn_crear_proyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuarioActionPerformed(evt);
+                crear_proyecto_btn_crear_proyectoActionPerformed(evt);
+            }
+        });
+
+        crear_proyecto_txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crear_proyecto_txt_nombreActionPerformed(evt);
             }
         });
 
         login_lbl_usuario1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario1.setText("Fecha Inicio:");
 
-        login_txt_usuario1.addActionListener(new java.awt.event.ActionListener() {
+        crear_proyecto_txt_fecha_inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario1ActionPerformed(evt);
+                crear_proyecto_txt_fecha_inicioActionPerformed(evt);
             }
         });
 
         login_lbl_usuario2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario2.setText("Duracion:");
 
-        login_txt_usuario2.addActionListener(new java.awt.event.ActionListener() {
+        crear_proyecto_txt_duracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario2ActionPerformed(evt);
+                crear_proyecto_txt_duracionActionPerformed(evt);
             }
         });
 
-        login_txt_usuario3.addActionListener(new java.awt.event.ActionListener() {
+        crear_proyecto_txt_presupuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuario3ActionPerformed(evt);
+                crear_proyecto_txt_presupuestoActionPerformed(evt);
             }
         });
 
@@ -154,16 +160,25 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
         login_lbl_usuario4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         login_lbl_usuario4.setText("Descripción:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        crear_proyecto_jTextArea_descripcion.setColumns(20);
+        crear_proyecto_jTextArea_descripcion.setRows(5);
+        jScrollPane1.setViewportView(crear_proyecto_jTextArea_descripcion);
 
-        proyectos_btn_regresar1.setBackground(new java.awt.Color(255, 255, 255));
-        proyectos_btn_regresar1.setText("<<<");
-        proyectos_btn_regresar1.setPreferredSize(new java.awt.Dimension(100, 30));
-        proyectos_btn_regresar1.addActionListener(new java.awt.event.ActionListener() {
+        crear_proyecto_btn_regresar.setBackground(new java.awt.Color(255, 255, 255));
+        crear_proyecto_btn_regresar.setText("<<<");
+        crear_proyecto_btn_regresar.setPreferredSize(new java.awt.Dimension(100, 30));
+        crear_proyecto_btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proyectos_btn_regresar1ActionPerformed(evt);
+                crear_proyecto_btn_regresarActionPerformed(evt);
+            }
+        });
+
+        login_lbl_usuario5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        login_lbl_usuario5.setText("ID Proyecto:");
+
+        crear_proyecto_txt_id_proyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crear_proyecto_txt_id_proyectoActionPerformed(evt);
             }
         });
 
@@ -173,33 +188,38 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 50, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(login_lbl_usuario1)
-                            .addGap(18, 18, 18)
-                            .addComponent(login_txt_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(login_lbl_usuario)
-                            .addGap(18, 18, 18)
-                            .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(login_lbl_usuario2)
-                            .addGap(18, 18, 18)
-                            .addComponent(login_txt_usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(login_lbl_usuario3)
-                            .addGap(18, 18, 18)
-                            .addComponent(login_txt_usuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(login_lbl_usuario4)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(124, 124, 124)
-                                .addComponent(proyectos_btn_regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1))))
+                                .addComponent(login_lbl_usuario1)
+                                .addGap(18, 18, 18)
+                                .addComponent(crear_proyecto_txt_fecha_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(login_lbl_usuario)
+                                .addGap(18, 18, 18)
+                                .addComponent(crear_proyecto_txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(login_lbl_usuario2)
+                                .addGap(18, 18, 18)
+                                .addComponent(crear_proyecto_txt_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(login_lbl_usuario3)
+                                .addGap(18, 18, 18)
+                                .addComponent(crear_proyecto_txt_presupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(login_lbl_usuario4)
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(crear_proyecto_btn_crear_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(124, 124, 124)
+                                    .addComponent(crear_proyecto_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(login_lbl_usuario5)
+                        .addGap(18, 18, 18)
+                        .addComponent(crear_proyecto_txt_id_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -207,30 +227,34 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crear_proyecto_txt_id_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_lbl_usuario5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(crear_proyecto_txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crear_proyecto_txt_fecha_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crear_proyecto_txt_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login_txt_usuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crear_proyecto_txt_presupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_lbl_usuario3))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(login_lbl_usuario4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proyectos_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proyectos_btn_regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(crear_proyecto_btn_crear_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crear_proyecto_btn_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
 
@@ -249,40 +273,61 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void proyectos_btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectos_btn_regresarActionPerformed
-        // Acciones del boton cerrar sesion
+    private void crear_proyecto_btn_crear_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_btn_crear_proyectoActionPerformed
+       // Acciones del botón "Crear Proyecto"
 
-        ProyectosUI proyectosUi = new ProyectosUI();
-        proyectosUi.setVisible(true);
-        dispose();
-        
+    // Capturar los datos del proyecto
+    String idProyecto = crear_proyecto_txt_id_proyecto.getText();
+    String nombre = crear_proyecto_txt_nombre.getText();
+    String duracion = crear_proyecto_txt_duracion.getText();
+    String descripcion = crear_proyecto_jTextArea_descripcion.getText();
+    String fechaInicio = crear_proyecto_txt_fecha_inicio.getText();
+    String presupuesto = crear_proyecto_txt_presupuesto.getText();
+
+    // Intentar crear el proyecto
+    int creado = ProyectosCrearLogic.crearProyecto(idProyecto, nombre, duracion, descripcion, cedulaUsuario, fechaInicio,  presupuesto);
+
+    // Validar el resultado y mostrar un mensaje al usuario
+    if (creado == 1) {
         JOptionPane.showMessageDialog(null, "Proyecto creado con éxito", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 
-    }//GEN-LAST:event_proyectos_btn_regresarActionPerformed
+        // Cerrar esta ventana y mostrar la ventana principal (Home)
+        HomeUI home = new HomeUI(cedulaUsuario);
+        home.setVisible(true);
+        dispose();
+    }
 
-    private void login_txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuarioActionPerformed
+    
+    }//GEN-LAST:event_crear_proyecto_btn_crear_proyectoActionPerformed
+
+    private void crear_proyecto_txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_txt_nombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuarioActionPerformed
+    }//GEN-LAST:event_crear_proyecto_txt_nombreActionPerformed
 
-    private void login_txt_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario1ActionPerformed
+    private void crear_proyecto_txt_fecha_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_txt_fecha_inicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario1ActionPerformed
+    }//GEN-LAST:event_crear_proyecto_txt_fecha_inicioActionPerformed
 
-    private void login_txt_usuario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario2ActionPerformed
+    private void crear_proyecto_txt_duracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_txt_duracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario2ActionPerformed
+    }//GEN-LAST:event_crear_proyecto_txt_duracionActionPerformed
 
-    private void login_txt_usuario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuario3ActionPerformed
+    private void crear_proyecto_txt_presupuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_txt_presupuestoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuario3ActionPerformed
+    }//GEN-LAST:event_crear_proyecto_txt_presupuestoActionPerformed
 
-    private void proyectos_btn_regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectos_btn_regresar1ActionPerformed
-        // Acciones del boton cerrar sesion
+    private void crear_proyecto_btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_btn_regresarActionPerformed
+        // Acciones del boton regresar
 
-       ProyectosUI ProyectosUi = new ProyectosUI();
-       ProyectosUi.setVisible(true);
-       dispose();
-    }//GEN-LAST:event_proyectos_btn_regresar1ActionPerformed
+       // Cerrar esta ventana y mostrar la ventana principal (Home)
+        HomeUI home = new HomeUI(cedulaUsuario);
+        home.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_crear_proyecto_btn_regresarActionPerformed
+
+    private void crear_proyecto_txt_id_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_txt_id_proyectoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crear_proyecto_txt_id_proyectoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,6 +335,14 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton crear_proyecto_btn_crear_proyecto;
+    private javax.swing.JButton crear_proyecto_btn_regresar;
+    private javax.swing.JTextArea crear_proyecto_jTextArea_descripcion;
+    private javax.swing.JTextField crear_proyecto_txt_duracion;
+    private javax.swing.JTextField crear_proyecto_txt_fecha_inicio;
+    private javax.swing.JTextField crear_proyecto_txt_id_proyecto;
+    private javax.swing.JTextField crear_proyecto_txt_nombre;
+    private javax.swing.JTextField crear_proyecto_txt_presupuesto;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -297,17 +350,11 @@ public class ProyectosCrearUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel login_lbl_usuario;
     private javax.swing.JLabel login_lbl_usuario1;
     private javax.swing.JLabel login_lbl_usuario2;
     private javax.swing.JLabel login_lbl_usuario3;
     private javax.swing.JLabel login_lbl_usuario4;
-    private javax.swing.JTextField login_txt_usuario;
-    private javax.swing.JTextField login_txt_usuario1;
-    private javax.swing.JTextField login_txt_usuario2;
-    private javax.swing.JTextField login_txt_usuario3;
-    private javax.swing.JButton proyectos_btn_regresar;
-    private javax.swing.JButton proyectos_btn_regresar1;
+    private javax.swing.JLabel login_lbl_usuario5;
     // End of variables declaration//GEN-END:variables
 }

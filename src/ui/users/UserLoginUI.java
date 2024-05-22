@@ -8,7 +8,7 @@ package ui.users;
 // mis paquetes
 import logic.user.LoginLogic;
 import ui.HomeUI;
-import ui.utils.Utilidades;
+import ui.utils.UiUtilidades;
 
 /**
  *
@@ -166,7 +166,7 @@ public class UserLoginUI extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        Utilidades.agregarPlaceholder(login_txt_usuario, " Ingrese su cedula");
+        UiUtilidades.agregarPlaceholder(login_txt_usuario, " Ingrese su cedula");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,7 +191,7 @@ public class UserLoginUI extends javax.swing.JFrame {
         // Acciones del boton ingresar
         
         String cedula = login_txt_usuario.getText();
-        String contrasegnia = Utilidades.getPasswordFromField(login_jPasswordField);
+        String contrasegnia = UiUtilidades.getPasswordFromField(login_jPasswordField);
         
         int loggeado = LoginLogic.validateLogin(cedula, contrasegnia);
         

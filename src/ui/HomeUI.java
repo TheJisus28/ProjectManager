@@ -7,6 +7,9 @@ package ui;
 import data.BBDD;
 import ui.users.UserLoginUI;
 import models.User;
+import ui.proyectos.ProyectosCrearUI;
+import ui.proyectos.ProyectosUnirse;
+import ui.proyectos.ProyectosVer;
 /**
  *
  * @author JESUS DANIEL
@@ -42,9 +45,9 @@ public class HomeUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         home_username = new javax.swing.JTextField();
-        home_btn_proyectos = new javax.swing.JButton();
-        home_btn_1 = new javax.swing.JButton();
-        home_btn_2 = new javax.swing.JButton();
+        home_btn_ver_proyectos = new javax.swing.JButton();
+        home_btn_crear_proyecto = new javax.swing.JButton();
+        home_btn_unirse_a_proyecto = new javax.swing.JButton();
         home_btn_cerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,30 +117,30 @@ public class HomeUI extends javax.swing.JFrame {
             }
         });
 
-        home_btn_proyectos.setBackground(new java.awt.Color(255, 255, 255));
-        home_btn_proyectos.setText("Proyectos");
-        home_btn_proyectos.setPreferredSize(new java.awt.Dimension(100, 30));
-        home_btn_proyectos.addActionListener(new java.awt.event.ActionListener() {
+        home_btn_ver_proyectos.setBackground(new java.awt.Color(255, 255, 255));
+        home_btn_ver_proyectos.setText("Ver Proyectos");
+        home_btn_ver_proyectos.setPreferredSize(new java.awt.Dimension(100, 30));
+        home_btn_ver_proyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                home_btn_proyectosActionPerformed(evt);
+                home_btn_ver_proyectosActionPerformed(evt);
             }
         });
 
-        home_btn_1.setBackground(new java.awt.Color(255, 255, 255));
-        home_btn_1.setText("Actividades");
-        home_btn_1.setPreferredSize(new java.awt.Dimension(100, 30));
-        home_btn_1.addActionListener(new java.awt.event.ActionListener() {
+        home_btn_crear_proyecto.setBackground(new java.awt.Color(255, 255, 255));
+        home_btn_crear_proyecto.setText("Crear Proyecto");
+        home_btn_crear_proyecto.setPreferredSize(new java.awt.Dimension(100, 30));
+        home_btn_crear_proyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                home_btn_1ActionPerformed(evt);
+                home_btn_crear_proyectoActionPerformed(evt);
             }
         });
 
-        home_btn_2.setBackground(new java.awt.Color(255, 255, 255));
-        home_btn_2.setText("Tareas");
-        home_btn_2.setPreferredSize(new java.awt.Dimension(100, 30));
-        home_btn_2.addActionListener(new java.awt.event.ActionListener() {
+        home_btn_unirse_a_proyecto.setBackground(new java.awt.Color(255, 255, 255));
+        home_btn_unirse_a_proyecto.setText("Unirse a un proyecto");
+        home_btn_unirse_a_proyecto.setPreferredSize(new java.awt.Dimension(100, 30));
+        home_btn_unirse_a_proyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                home_btn_2ActionPerformed(evt);
+                home_btn_unirse_a_proyectoActionPerformed(evt);
             }
         });
 
@@ -157,18 +160,18 @@ public class HomeUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_homeLayout.createSequentialGroup()
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(home_btn_1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(home_btn_crear_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel_homeLayout.createSequentialGroup()
                         .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_homeLayout.createSequentialGroup()
                                 .addComponent(home_username, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_homeLayout.createSequentialGroup()
-                                .addComponent(home_btn_proyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(home_btn_ver_proyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(83, 83, 83))
                             .addGroup(jPanel_homeLayout.createSequentialGroup()
                                 .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(home_btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(home_btn_unirse_a_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(home_btn_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -180,11 +183,11 @@ public class HomeUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(home_username, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addComponent(home_btn_proyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(home_btn_ver_proyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
-                .addComponent(home_btn_1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(home_btn_crear_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
-                .addComponent(home_btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(home_btn_unirse_a_proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(home_btn_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -209,22 +212,30 @@ public class HomeUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_home_usernameActionPerformed
 
-    private void home_btn_proyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_proyectosActionPerformed
-        // Acciones del boton proyectos
+    private void home_btn_ver_proyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_ver_proyectosActionPerformed
+        // Acciones del boton ver proyectos
         
-        ui.proyectos.ProyectosUI proyectosUi = new ui.proyectos.ProyectosUI();
-        proyectosUi.setVisible(true);
+        ProyectosVer verProyectos = new ProyectosVer(cedulaUsuario);
+        verProyectos.setVisible(true);
         dispose();
         
-    }//GEN-LAST:event_home_btn_proyectosActionPerformed
+    }//GEN-LAST:event_home_btn_ver_proyectosActionPerformed
 
-    private void home_btn_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_home_btn_1ActionPerformed
+    private void home_btn_crear_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_crear_proyectoActionPerformed
+        // Crear proyecto
+        ProyectosCrearUI crearProyecto = new ProyectosCrearUI(cedulaUsuario);
+        crearProyecto.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_home_btn_crear_proyectoActionPerformed
 
-    private void home_btn_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_2ActionPerformed
+    private void home_btn_unirse_a_proyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_unirse_a_proyectoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_home_btn_2ActionPerformed
+        
+        ProyectosUnirse unirseProyecto = new ProyectosUnirse(cedulaUsuario);
+        unirseProyecto.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_home_btn_unirse_a_proyectoActionPerformed
 
     private void home_btn_cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_cerrarSesionActionPerformed
         // Acciones del boton cerrar sesion
@@ -240,10 +251,10 @@ public class HomeUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton home_btn_1;
-    private javax.swing.JButton home_btn_2;
     private javax.swing.JButton home_btn_cerrarSesion;
-    private javax.swing.JButton home_btn_proyectos;
+    private javax.swing.JButton home_btn_crear_proyecto;
+    private javax.swing.JButton home_btn_unirse_a_proyecto;
+    private javax.swing.JButton home_btn_ver_proyectos;
     private javax.swing.JTextField home_username;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

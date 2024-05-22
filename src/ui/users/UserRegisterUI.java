@@ -7,7 +7,7 @@ package ui.users;
 
 // mis paquetes
 import logic.user.RegisterLogic;
-import ui.utils.Utilidades;
+import ui.utils.UiUtilidades;
 /**
  *
  * @author JESUS DANIEL
@@ -300,7 +300,7 @@ public class UserRegisterUI extends javax.swing.JFrame {
         login_jRadioButton_masculino.setActionCommand("Masculino");
         login_jRadioButton_femenino.setActionCommand("Femenino");
         login_jRadioButton_noBinario.setActionCommand("No binario");
-        Utilidades.agregarPlaceholder(registrar_txt_cedula, "Ej. 1062959671");
+        UiUtilidades.agregarPlaceholder(registrar_txt_cedula, "Ej. 1062959671");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -363,7 +363,7 @@ public class UserRegisterUI extends javax.swing.JFrame {
         // Capturar los datos del usuario
        String nombre = registrar_txt_nombre.getText();
        String edadText = registrar_txt_edad.getText();
-       String sexo = Utilidades.obtenerTextoRadioButtonSeleccionado(registrar_buttonGroup_sexo);
+       String sexo = UiUtilidades.obtenerTextoRadioButtonSeleccionado(registrar_buttonGroup_sexo);
        String titulo = registrar_txt_titulo.getText();
        String dependencia = registrar_txt_dependencia.getText();
        String cedula = registrar_txt_cedula.getText();
@@ -375,7 +375,7 @@ public class UserRegisterUI extends javax.swing.JFrame {
         
         // Validamos la acción
         if(registrado == 1) {
-            Utilidades.mostrarVentana("Registro exitoso.", "Registrado");
+            UiUtilidades.mostrarVentana("Registro exitoso.", "Registrado");
             
             // Regresar al login.
             UserLoginUI loginUi = new UserLoginUI();

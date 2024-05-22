@@ -1,6 +1,8 @@
 package data;
 
+import models.Proyecto;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import models.*;
@@ -55,28 +57,33 @@ public class BBDD {
         return null; // Retornar null si el usuario no se encuentra
     }
 
-    /**
-     * Registrar un nuevo proyecto en el sistema.
-     * 
-     * @param idProyecto  ID del proyecto
-     * @param nombre      Nombre del proyecto
-     * @param duracion    Duración del proyecto
-     * @param descripcion Descripción del proyecto
-     * @param encargado   Persona encargada del proyecto
-     * @param fechaInicio Fecha de inicio del proyecto
-     * @param fechaFinal  Fecha de finalización del proyecto
-     * @param presupuesto Presupuesto del proyecto
-     * @return -1 si el proyecto ya existe, 1 si se registra exitosamente
-     */
-    public static int registrarProyecto(String idProyecto, String nombre, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
-        if (obtenerProyectoPorId(idProyecto) != null) {
-            return -1; // Si el proyecto ya existe, retornar -1 indicando error
-        }
+  /**
+    * Registrar un nuevo proyecto en el sistema.
+    * 
+    * @param idProyecto  ID del proyecto
+    * @param nombre      Nombre del proyecto
+    * @param duracion    Duración del proyecto en meses
+    * @param descripcion Descripción del proyecto
+    * @param encargado   Persona encargada del proyecto
+    * @param fechaInicio Fecha de inicio del proyecto
+    * @param presupuesto Presupuesto del proyecto
+    * @return -1 si el proyecto ya existe, 1 si se registra exitosamente
+    */
+   public static int registrarProyecto(String idProyecto, String nombre, int duracion, String descripcion, String encargado, Date fechaInicio, int presupuesto) {
+       if (obtenerProyectoPorId(idProyecto) != null) {
+           return -1; // Si el proyecto ya existe, retornar -1 indicando error
+       }
 
-        Proyecto newProyecto = new Proyecto(idProyecto, nombre, duracion, descripcion, encargado, fechaInicio, fechaFinal, presupuesto); // Crear un nuevo proyecto con el nombre
-        proyectosList.add(newProyecto); // Almacenar proyecto en la lista
-        return 1; // Retornar 1 indicando éxito
-    }
+       // Calcular la fecha final basada en la fecha de inicio y la duración
+       Calendar calendar = Calendar.getInstance();
+       calendar.setTime(fechaInicio);
+       calendar.add(Calendar.MONTH, duracion); // Sumar la duración en meses
+       Date fechaFinal = calendar.getTime();
+
+       Proyecto newProyecto = new Proyecto(idProyecto, nombre, duracion, descripcion, encargado, fechaInicio, fechaFinal, presupuesto); // Crear un nuevo proyecto con el nombre
+       proyectosList.add(newProyecto); // Almacenar proyecto en la lista
+       return 1; // Retornar 1 indicando éxito
+   }
 
     /**
      * Obtener un proyecto por su ID.
@@ -341,6 +348,32 @@ public class BBDD {
             }
         }
     }
+    
+    
+    /**
+     * Obtener los proyectos asociados a una persona.
+     * 
+     * @param cedula Cédula de la persona
+     * @return Lista de proyectos asociados a la persona
+     */
+    public static List<Proyecto> obtenerProyectosDePersona(String cedula) {
+        List<Proyecto> proyectosAsociados = new ArrayList<>();
+        // Iterar sobre la lista de usuarios para encontrar el usuario con la cédula proporcionada
+        for (User user : usersList) {
+            if (user.getCedula().equals(cedula)) {
+                // Una vez encontrado el usuario, obtener los proyectos asociados a él
+                for (String idProyecto : user.getProyectos()) {
+                    Proyecto proyecto = obtenerProyectoPorId(idProyecto);
+                    if (proyecto != null) {
+                        proyectosAsociados.add(proyecto);
+                    }
+                }
+                break; // Salir del bucle una vez encontrado el usuario
+            }
+        }
+        return proyectosAsociados;
+    }
+
 
     // ----------------------------------- PREGUNTAS ----------------------------------- ---------------------
 
@@ -479,6 +512,16 @@ public class BBDD {
         }
         return personasProyecto;
     }
+    
+    public static List<User> obtenerUsuariosEnProyecto(String idProyecto) {
+    List<User> usuariosEnProyecto = new ArrayList<>();
+    for (User user : usersList) {
+        if (user.getProyectos().contains(idProyecto)) {
+            usuariosEnProyecto.add(user);
+        }
+    }
+    return usuariosEnProyecto;
+}
 
     /**
      * Consultar la persona responsable de un proyecto.
