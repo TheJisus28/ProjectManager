@@ -28,12 +28,14 @@ public class BBDD {
      * @return -1 si el usuario ya existe, 1 si se registra exitosamente
      */
     public static int registerUser(String nombre, int edad, String sexo, String dependencia, String titulo, String cedula, String contrasegnia) {
+        System.out.println("Datos recibidos en la bbdd: " + nombre + " : " + cedula);
         if (obtenerUsuarioPorCedula(cedula) != null) {
-            return -1; // Si la cédula ya existe, retornar -1 indicando error
+//            return -1; // Si la cédula ya existe, retornar -1 indicando error
         }
 
         User newUser = new User(cedula, edad, sexo, dependencia, titulo, contrasegnia); // Crear un nuevo usuario
         usersList.add(newUser); // Almacenar usuario en la lista
+        System.out.println("usuario" + newUser.getNombre() + " almacenado");
         return 1; // Retornar 1 indicando éxito
     }
 
@@ -44,11 +46,15 @@ public class BBDD {
      * @return El usuario correspondiente a la cédula, o null si no se encuentra
      */
     public static User obtenerUsuarioPorCedula(String cedula) {
+        System.out.println("En la bbdd");
         for (User user : usersList) {
+            System.out.println(user.getCedula());
             if (user.getCedula().equals(cedula)) {
+                System.out.print("Encontrado");
                 return user;
             }
         }
+        System.out.print("no Encontrado");
         return null; // Retornar null si el usuario no se encuentra
     }
 
@@ -56,6 +62,7 @@ public class BBDD {
      * Registrar un nuevo proyecto en el sistema.
      * 
      * @param idProyecto  ID del proyecto
+     * @param nombre      Nombre del proyecto
      * @param duracion    Duración del proyecto
      * @param descripcion Descripción del proyecto
      * @param encargado   Persona encargada del proyecto
@@ -64,12 +71,12 @@ public class BBDD {
      * @param presupuesto Presupuesto del proyecto
      * @return -1 si el proyecto ya existe, 1 si se registra exitosamente
      */
-    public static int registrarProyecto(String idProyecto, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
+    public static int registrarProyecto(String idProyecto, String nombre, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
         if (obtenerProyectoPorId(idProyecto) != null) {
             return -1; // Si el proyecto ya existe, retornar -1 indicando error
         }
 
-        Proyecto newProyecto = new Proyecto(idProyecto, duracion, descripcion, encargado, fechaInicio, fechaFinal, presupuesto); // Crear un nuevo proyecto
+        Proyecto newProyecto = new Proyecto(idProyecto, nombre, duracion, descripcion, encargado, fechaInicio, fechaFinal, presupuesto); // Crear un nuevo proyecto con el nombre
         proyectosList.add(newProyecto); // Almacenar proyecto en la lista
         return 1; // Retornar 1 indicando éxito
     }
@@ -189,53 +196,58 @@ public class BBDD {
     }
 
     /**
-     * Modificar los datos de una tarea existente.
-     * 
-     * @param idTarea      ID de la tarea a modificar
-     * @param nombre       Nuevo nombre de la tarea
-     * @param descripcion  Nueva descripción de la tarea
-     * @param costo        Nuevo costo de la tarea
-     * @param fechaInicial Nueva fecha de inicio de la tarea
-     * @param fechaFinal   Nueva fecha de finalización de la tarea
-     */
-    public static void modificarTarea(String idTarea, String nombre, String descripcion, int costo, Date fechaInicial, Date fechaFinal) {
-        for (Tarea tarea : tareasList) {
-            if (tarea.getIdTarea().equals(idTarea)) {
-                // Modificar los datos de la tarea
-                tarea.setNombre(nombre);
-                tarea.setDescripcion(descripcion);
-                tarea.setCosto(costo);
-                tarea.setFechaInicial(fechaInicial);
-                tarea.setFechaFinal(fechaFinal);
-                return; // Salir del método una vez modificados los datos de la tarea
-            }
-        }
-    }
+    * Modificar los datos de una tarea existente.
+    * 
+    * @param idTarea      ID de la tarea a modificar
+    * @param nombre       Nuevo nombre de la tarea
+    * @param descripcion  Nueva descripción de la tarea
+    * @param costo        Nuevo costo de la tarea
+    * @param fechaInicial Nueva fecha de inicio de la tarea
+    * @param fechaFinal   Nueva fecha de finalización de la tarea
+    * @param estado       Nuevo estado de la tarea ("terminado" o "en desarrollo")
+    */
+   public static void modificarTarea(String idTarea, String nombre, String descripcion, int costo, Date fechaInicial, Date fechaFinal, boolean estado) {
+       for (Tarea tarea : tareasList) {
+           if (tarea.getIdTarea().equals(idTarea)) {
+               // Modificar los datos de la tarea
+               tarea.setNombre(nombre);
+               tarea.setDescripcion(descripcion);
+               tarea.setCosto(costo);
+               tarea.setFechaInicial(fechaInicial);
+               tarea.setFechaFinal(fechaFinal);
+               tarea.setEstado(estado);
+               return; // Salir del método una vez modificados los datos de la tarea
+           }
+       }
+   }
 
-    /**
-     * Modificar los datos de una actividad existente.
-     * 
-     * @param idActividad  ID de la actividad a modificar
-     * @param descripcion  Nueva descripción de la actividad
-     * @param fechaInicial Nueva fecha de inicio de la actividad
-     * @param fechaFinal   Nueva fecha de finalización de la actividad
-     */
-    public static void modificarActividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal) {
-        for (Actividad actividad : actividadesList) {
-            if (actividad.getIdActividad().equals(idActividad)) {
-                // Modificar los datos de la actividad
-                actividad.setDescripcion(descripcion);
-                actividad.setFechaInicial(fechaInicial);
-                actividad.setFechaFinal(fechaFinal);
-                return; // Salir del método una vez modificados los datos de la actividad
-            }
-        }
-    }
-
-    /**
+   /**
+    * Modificar los datos de una actividad existente.
+    * 
+    * @param idActividad  ID de la actividad a modificar
+    * @param descripcion  Nueva descripción de la actividad
+    * @param fechaInicial Nueva fecha de inicio de la actividad
+    * @param fechaFinal   Nueva fecha de finalización de la actividad
+    * @param estado       Nuevo estado de la actividad ("terminado" o "en desarrollo")
+    */
+   public static void modificarActividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal, boolean estado) {
+       for (Actividad actividad : actividadesList) {
+           if (actividad.getIdActividad().equals(idActividad)) {
+               // Modificar los datos de la actividad
+               actividad.setDescripcion(descripcion);
+               actividad.setFechaInicial(fechaInicial);
+               actividad.setFechaFinal(fechaFinal);
+               actividad.setEstado(estado);
+               return; // Salir del método una vez modificados los datos de la actividad
+           }
+       }
+   }
+    
+   /**
      * Modificar los datos de un proyecto existente.
      * 
      * @param idProyecto  ID del proyecto a modificar
+     * @param nombre      Nuevo nombre del proyecto
      * @param duracion    Nueva duración del proyecto
      * @param descripcion Nueva descripción del proyecto
      * @param encargado   Nueva persona encargada del proyecto
@@ -243,10 +255,11 @@ public class BBDD {
      * @param fechaFinal  Nueva fecha de finalización del proyecto
      * @param presupuesto Nuevo presupuesto del proyecto
      */
-    public static void modificarProyecto(String idProyecto, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
+    public static void modificarProyecto(String idProyecto, String nombre, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
         for (Proyecto proyecto : proyectosList) {
             if (proyecto.getIdProyecto().equals(idProyecto)) {
                 // Modificar los datos del proyecto
+                proyecto.setNombre(nombre);
                 proyecto.setDuracion(duracion);
                 proyecto.setDescripcion(descripcion);
                 proyecto.setEncargado(encargado);
@@ -373,19 +386,17 @@ public class BBDD {
      * @return Lista de tareas correspondientes a la actividad
      */
     public static ArrayList<Tarea> obtenerTareasDeActividad(String idActividad) {
-        ArrayList<Tarea> tareasDeActividad = new ArrayList<>();
-        for (Actividad actividad : actividadesList) {
-            if (actividad.getIdActividad().equals(idActividad)) {
-                for (String idTarea : actividad.getTareas()) {
-                    Tarea tarea = obtenerTareaPorId(idTarea);
-                    if (tarea != null) {
-                        tareasDeActividad.add(tarea);
-                    }
+        Actividad actividad = obtenerActividadPorId(idActividad);
+        ArrayList<Tarea> tareas = new ArrayList<>();
+        if (actividad != null) {
+            for (String idTarea : actividad.getTareas()) {
+                Tarea tarea = obtenerTareaPorId(idTarea);
+                if (tarea != null) {
+                    tareas.add(tarea);
                 }
-                break;
             }
         }
-        return tareasDeActividad;
+        return tareas;
     }
 
     /**

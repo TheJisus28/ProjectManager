@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class Proyecto {
     String idProyecto;
+    String nombre; // Nueva variable nombre
     int duracion;
     String descripcion;
     String encargado;
@@ -15,8 +16,9 @@ public class Proyecto {
     ArrayList<String> actividades;
     ArrayList<String> personal;
 
-    public Proyecto(String idProyecto, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
+    public Proyecto(String idProyecto, String nombre, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
         this.idProyecto = idProyecto;
+        this.nombre = nombre; 
         this.duracion = duracion;
         this.descripcion = descripcion;
         this.encargado = encargado;
@@ -33,6 +35,14 @@ public class Proyecto {
 
     public void setIdProyecto(String idProyecto) {
         this.idProyecto = idProyecto;
+    }
+
+    public String getNombre() { 
+        return nombre;
+    }
+
+    public void setNombre(String nombre) { 
+        this.nombre = nombre;
     }
 
     public int getDuracion() {
@@ -94,5 +104,4 @@ public class Proyecto {
     public ArrayList<String> getPersonal() {
         return personal;
     }
-        
 }

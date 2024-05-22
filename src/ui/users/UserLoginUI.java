@@ -6,6 +6,7 @@
 package ui.users;
 
 // mis paquetes
+import logic.user.LoginLogic;
 import ui.HomeUI;
 import ui.utils.Utilidades;
 
@@ -42,7 +43,7 @@ public class UserLoginUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         login_btn_ingresar = new javax.swing.JButton();
         login_btn_registrarse = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        login_jPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Project Manager");
@@ -137,7 +138,7 @@ public class UserLoginUI extends javax.swing.JFrame {
                     .addGroup(jPanel_loginLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addGroup(jPanel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(login_jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(login_lbl_usuario)
                                 .addComponent(login_txt_usuario)
@@ -157,7 +158,7 @@ public class UserLoginUI extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(login_jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
                 .addComponent(login_btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
@@ -189,12 +190,17 @@ public class UserLoginUI extends javax.swing.JFrame {
     private void login_btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn_ingresarActionPerformed
         // Acciones del boton ingresar
         
+        String cedula = login_txt_usuario.getText();
+        String contrasegnia = Utilidades.getPasswordFromField(login_jPasswordField);
         
+        int loggeado = LoginLogic.validateLogin(cedula, contrasegnia);
         
-        HomeUI homeUi = new HomeUI();
-        homeUi.setVisible(true);
-        dispose();
+        if (loggeado ==1){
+            HomeUI homeUi = new HomeUI(cedula);
+            homeUi.setVisible(true);
+            dispose();
         
+        }
 
     }//GEN-LAST:event_login_btn_ingresarActionPerformed
 
@@ -217,9 +223,9 @@ public class UserLoginUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_login;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton login_btn_ingresar;
     private javax.swing.JButton login_btn_registrarse;
+    private javax.swing.JPasswordField login_jPasswordField;
     private javax.swing.JLabel login_lbl_usuario;
     private javax.swing.JTextField login_txt_usuario;
     // End of variables declaration//GEN-END:variables

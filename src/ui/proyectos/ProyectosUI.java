@@ -162,7 +162,7 @@ public class ProyectosUI extends javax.swing.JFrame {
     private void proyectos_btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectos_btn_regresarActionPerformed
         // Acciones del boton cerrar sesion
 
-        ui.HomeUI homeui = new ui.HomeUI();
+        ui.HomeUI homeui = new ui.HomeUI("modificaar");
         homeui.setVisible(true);
         dispose();
     }//GEN-LAST:event_proyectos_btn_regresarActionPerformed

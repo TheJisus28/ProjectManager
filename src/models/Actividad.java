@@ -10,7 +10,8 @@ public class Actividad {
     private Date fechaInicial;
     private Date fechaFinal;
     private String idProyecto;
-    private boolean estado; 
+    private boolean estado;
+    private List<String> tareas; // Lista de IDs de tareas
 
     // Constructor
     public Actividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal, String idProyecto) {
@@ -20,6 +21,7 @@ public class Actividad {
         this.fechaFinal = fechaFinal;
         this.idProyecto = idProyecto;
         this.estado = false; // Inicialmente en desarrollo
+        this.tareas = new ArrayList<>(); // Inicializar la lista de tareas
     }
 
     // Getters y Setters
@@ -72,7 +74,6 @@ public class Actividad {
     }
 
     public List<String> getTareas() {
-        // Suponiendo que hay un método para obtener las tareas asociadas
-        return new ArrayList<>();
+        return tareas;
     }
 }

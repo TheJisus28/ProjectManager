@@ -59,10 +59,10 @@ public class RegisterLogic {
         }
 
         // Contrasegnia segura
-        if (!Validators.esContrasenaValida(contrasegnia)) {
-            Utilidades.mostrarVentana("La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula, una letra minúscula y un número.", ventanaTitulo);
-            return -1;
-        }
+//        if (!Validators.esContrasenaValida(contrasegnia)) {
+//            Utilidades.mostrarVentana("La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula, una letra minúscula y un número.", ventanaTitulo);
+//            return -1;
+//        }
 
         // Contrasegnias iguales
         if (!contrasegnia.equals(confirmacionContrasegnia)) {

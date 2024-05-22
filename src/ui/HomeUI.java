@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package ui;
-
+import data.BBDD;
 import ui.users.UserLoginUI;
-
+import models.User;
 /**
  *
  * @author JESUS DANIEL
@@ -16,10 +16,18 @@ public class HomeUI extends javax.swing.JFrame {
     /**
      * Creates new form HomeUI
      */
-    public HomeUI() {
+    private String cedulaUsuario;
+    User user = BBDD.obtenerUsuarioPorCedula(cedulaUsuario); // Obtener el usuario por su cédula
+    
+    private String nombreUsuario = user.getNombre();
+    
+    public HomeUI(String cedula) {
+        cedulaUsuario = cedula;
         initComponents();
-    }
+        System.out.println(nombreUsuario);
 
+    }
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +43,7 @@ public class HomeUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        login_txt_usuario = new javax.swing.JTextField();
+        home_username = new javax.swing.JTextField();
         home_btn_proyectos = new javax.swing.JButton();
         home_btn_1 = new javax.swing.JButton();
         home_btn_2 = new javax.swing.JButton();
@@ -98,13 +106,13 @@ public class HomeUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        login_txt_usuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        login_txt_usuario.setText("Jesus Daniel Carrascal Hoyos");
-        login_txt_usuario.setBorder(null);
-        login_txt_usuario.setFocusable(false);
-        login_txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+        home_username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        home_username.setText(nombreUsuario);
+        home_username.setBorder(null);
+        home_username.setFocusable(false);
+        home_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_txt_usuarioActionPerformed(evt);
+                home_usernameActionPerformed(evt);
             }
         });
 
@@ -155,7 +163,7 @@ public class HomeUI extends javax.swing.JFrame {
                     .addGroup(jPanel_homeLayout.createSequentialGroup()
                         .addGroup(jPanel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_homeLayout.createSequentialGroup()
-                                .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(home_username, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_homeLayout.createSequentialGroup()
                                 .addComponent(home_btn_proyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,7 +180,7 @@ public class HomeUI extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel_homeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(login_txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(home_username, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(home_btn_proyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58)
@@ -199,9 +207,9 @@ public class HomeUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void login_txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_txt_usuarioActionPerformed
+    private void home_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_txt_usuarioActionPerformed
+    }//GEN-LAST:event_home_usernameActionPerformed
 
     private void home_btn_proyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_btn_proyectosActionPerformed
         // Acciones del boton proyectos
@@ -238,12 +246,14 @@ public class HomeUI extends javax.swing.JFrame {
     private javax.swing.JButton home_btn_2;
     private javax.swing.JButton home_btn_cerrarSesion;
     private javax.swing.JButton home_btn_proyectos;
+    private javax.swing.JTextField home_username;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel_home;
-    private javax.swing.JTextField login_txt_usuario;
     // End of variables declaration//GEN-END:variables
+    
+
 }
