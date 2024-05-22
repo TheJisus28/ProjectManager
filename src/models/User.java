@@ -13,8 +13,9 @@ public class User {
     String contrasegnia;
     ArrayList<String> proyectos;
 
-    public User(String cedula, int edad, String sexo, String dependencia, String titulo, String contrasegnia) {
+    public User(String cedula, String nombre , int edad, String sexo, String dependencia, String titulo, String contrasegnia) {
         this.cedula = cedula;
+        this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
         this.dependencia = dependencia;

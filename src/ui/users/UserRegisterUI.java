@@ -371,7 +371,7 @@ public class UserRegisterUI extends javax.swing.JFrame {
        String validarContrasegnia = registrar_txt_validarContrasegnia.getText();
        
        // Intentar registrar el usuario
-        int registrado = RegisterLogic.registrarUsuario(nombre, edadText, sexo, titulo, dependencia, cedula, contrasegnia, validarContrasegnia);
+        int registrado = RegisterLogic.registrarUsuario(cedula ,nombre, edadText, sexo, dependencia, titulo , contrasegnia, validarContrasegnia);
         
         // Validamos la acción
         if(registrado == 1) {

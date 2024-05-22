@@ -14,7 +14,7 @@ import ui.utils.Utilidades;
  */
 public class RegisterLogic {
     
-     public static int registrarUsuario(String nombre, String edadText, String sexo, String dependencia, String titulo, String cedula, String contrasegnia, String confirmacionContrasegnia) {
+     public static int registrarUsuario(String cedula, String nombre, String edadText, String sexo, String dependencia, String titulo , String contrasegnia, String confirmacionContrasegnia) {
         String ventanaTitulo = "Error";
         
         // Validaciones (Fail Fast Assertions)
@@ -72,7 +72,7 @@ public class RegisterLogic {
       
         // Fin de validaciones, regitramos usuario.
         
-        return BBDD.registerUser(nombre, edad, sexo, dependencia, titulo, cedula, contrasegnia);
+        return BBDD.registerUser(cedula,nombre, edad, sexo, dependencia, titulo , contrasegnia);
         
      }
 }
