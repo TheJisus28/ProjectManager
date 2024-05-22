@@ -6,29 +6,43 @@ import java.util.List;
 import models.*;
 
 public class BBDD {
-    private static List<User> usersList = new ArrayList<>(); // ArrayList para almacenar usuarios
-    private static List<Proyecto> proyectosList = new ArrayList<>(); // ArrayList para almacenar proyectos
-    private static List<Actividad> actividadesList = new ArrayList<>(); // ArrayList para almacenar actividades
-    private static List<Tarea> tareasList = new ArrayList<>(); // ArrayList para almacenar tareas
+    // Listas para almacenar las entidades del sistema
+    private static List<User> usersList = new ArrayList<>(); // Lista para almacenar usuarios
+    private static List<Proyecto> proyectosList = new ArrayList<>(); // Lista para almacenar proyectos
+    private static List<Actividad> actividadesList = new ArrayList<>(); // Lista para almacenar actividades
+    private static List<Tarea> tareasList = new ArrayList<>(); // Lista para almacenar tareas
 
     
-    
     // ----------------------------------- "GETTERS AND SETTERS" -----------------------------------------
-    
-    // Registrar usuario
+
+    /**
+     * Registrar un nuevo usuario en el sistema.
+     * 
+     * @param nombre      Nombre del usuario
+     * @param edad        Edad del usuario
+     * @param sexo        Sexo del usuario
+     * @param dependencia Dependencia del usuario
+     * @param titulo      Título del usuario
+     * @param cedula      Cédula del usuario
+     * @param contrasegnia Contraseña del usuario
+     * @return -1 si el usuario ya existe, 1 si se registra exitosamente
+     */
     public static int registerUser(String nombre, int edad, String sexo, String dependencia, String titulo, String cedula, String contrasegnia) {
-        // Validamos que el usuario a registrar no se encuentre en la BBDD
         if (obtenerUsuarioPorCedula(cedula) != null) {
-            // Si la cédula ya existe en la lista, retornar -1 indicando error
-            return -1;
+            return -1; // Si la cédula ya existe, retornar -1 indicando error
         }
 
         User newUser = new User(cedula, edad, sexo, dependencia, titulo, contrasegnia); // Crear un nuevo usuario
-        usersList.add(newUser); // Almacenar usuario en el ArrayList
+        usersList.add(newUser); // Almacenar usuario en la lista
         return 1; // Retornar 1 indicando éxito
     }
 
-    // Obtener usuario por cédula
+    /**
+     * Obtener un usuario por su cédula.
+     * 
+     * @param cedula Cédula del usuario
+     * @return El usuario correspondiente a la cédula, o null si no se encuentra
+     */
     public static User obtenerUsuarioPorCedula(String cedula) {
         for (User user : usersList) {
             if (user.getCedula().equals(cedula)) {
@@ -38,20 +52,34 @@ public class BBDD {
         return null; // Retornar null si el usuario no se encuentra
     }
 
-    // Registrar proyecto
+    /**
+     * Registrar un nuevo proyecto en el sistema.
+     * 
+     * @param idProyecto  ID del proyecto
+     * @param duracion    Duración del proyecto
+     * @param descripcion Descripción del proyecto
+     * @param encargado   Persona encargada del proyecto
+     * @param fechaInicio Fecha de inicio del proyecto
+     * @param fechaFinal  Fecha de finalización del proyecto
+     * @param presupuesto Presupuesto del proyecto
+     * @return -1 si el proyecto ya existe, 1 si se registra exitosamente
+     */
     public static int registrarProyecto(String idProyecto, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
-        // Validamos que el proyecto a registrar no se encuentre en la BBDD
         if (obtenerProyectoPorId(idProyecto) != null) {
-            // Si el proyecto ya existe en la lista, retornar -1 indicando error
-            return -1;
+            return -1; // Si el proyecto ya existe, retornar -1 indicando error
         }
 
         Proyecto newProyecto = new Proyecto(idProyecto, duracion, descripcion, encargado, fechaInicio, fechaFinal, presupuesto); // Crear un nuevo proyecto
-        proyectosList.add(newProyecto); // Almacenar proyecto en el ArrayList
+        proyectosList.add(newProyecto); // Almacenar proyecto en la lista
         return 1; // Retornar 1 indicando éxito
     }
 
-    // Obtener proyecto por id
+    /**
+     * Obtener un proyecto por su ID.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return El proyecto correspondiente al ID, o null si no se encuentra
+     */
     public static Proyecto obtenerProyectoPorId(String idProyecto) {
         for (Proyecto proyecto : proyectosList) {
             if (proyecto.getIdProyecto().equals(idProyecto)) {
@@ -61,20 +89,32 @@ public class BBDD {
         return null; // Retornar null si el proyecto no se encuentra
     }
 
-    // Registrar actividad
+    /**
+     * Registrar una nueva actividad en el sistema.
+     * 
+     * @param idActividad ID de la actividad
+     * @param descripcion Descripción de la actividad
+     * @param fechaInicial Fecha de inicio de la actividad
+     * @param fechaFinal  Fecha de finalización de la actividad
+     * @param idProyecto  ID del proyecto al que pertenece la actividad
+     * @return -1 si la actividad ya existe, 1 si se registra exitosamente
+     */
     public static int registrarActividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal, String idProyecto) {
-        // Validamos que la actividad a registrar no se encuentre en la BBDD
         if (obtenerActividadPorId(idActividad) != null) {
-            // Si la actividad ya existe en la lista, retornar -1 indicando error
-            return -1;
+            return -1; // Si la actividad ya existe, retornar -1 indicando error
         }
 
         Actividad newActividad = new Actividad(idActividad, descripcion, fechaInicial, fechaFinal, idProyecto); // Crear una nueva actividad
-        actividadesList.add(newActividad); // Almacenar actividad en el ArrayList
+        actividadesList.add(newActividad); // Almacenar actividad en la lista
         return 1; // Retornar 1 indicando éxito
     }
 
-    // Obtener actividad por id
+    /**
+     * Obtener una actividad por su ID.
+     * 
+     * @param idActividad ID de la actividad
+     * @return La actividad correspondiente al ID, o null si no se encuentra
+     */
     public static Actividad obtenerActividadPorId(String idActividad) {
         for (Actividad actividad : actividadesList) {
             if (actividad.getIdActividad().equals(idActividad)) {
@@ -84,20 +124,33 @@ public class BBDD {
         return null; // Retornar null si la actividad no se encuentra
     }
 
-    // Registrar tarea
+    /**
+     * Registrar una nueva tarea en el sistema.
+     * 
+     * @param idTarea      ID de la tarea
+     * @param nombre       Nombre de la tarea
+     * @param descripcion  Descripción de la tarea
+     * @param costo        Costo de la tarea
+     * @param fechaInicial Fecha de inicio de la tarea
+     * @param fechaFinal   Fecha de finalización de la tarea
+     * @return -1 si la tarea ya existe, 1 si se registra exitosamente
+     */
     public static int registrarTarea(String idTarea, String nombre, String descripcion, int costo, Date fechaInicial, Date fechaFinal) {
-        // Validamos que la tarea a registrar no se encuentre en la BBDD
         if (obtenerTareaPorId(idTarea) != null) {
-            // Si la tarea ya existe en la lista, retornar -1 indicando error
-            return -1;
+            return -1; // Si la tarea ya existe, retornar -1 indicando error
         }
 
         Tarea newTarea = new Tarea(idTarea, nombre, descripcion, costo, fechaInicial, fechaFinal); // Crear una nueva tarea
-        tareasList.add(newTarea); // Almacenar tarea en el ArrayList
+        tareasList.add(newTarea); // Almacenar tarea en la lista
         return 1; // Retornar 1 indicando éxito
     }
 
-    // Obtener tarea por id
+    /**
+     * Obtener una tarea por su ID.
+     * 
+     * @param idTarea ID de la tarea
+     * @return La tarea correspondiente al ID, o null si no se encuentra
+     */
     public static Tarea obtenerTareaPorId(String idTarea) {
         for (Tarea tarea : tareasList) {
             if (tarea.getIdTarea().equals(idTarea)) {
@@ -107,13 +160,20 @@ public class BBDD {
         return null; // Retornar null si la tarea no se encuentra
     }
 
-    
-    
     // --------------------------- MODIFICAR DATOS -----------------------------
-    
-    // Modificar datos de un usuario
+
+    /**
+     * Modificar los datos de un usuario existente.
+     * 
+     * @param cedulaUsuario Cédula del usuario a modificar
+     * @param nombre        Nuevo nombre del usuario
+     * @param edad          Nueva edad del usuario
+     * @param sexo          Nuevo sexo del usuario
+     * @param dependencia   Nueva dependencia del usuario
+     * @param titulo        Nuevo título del usuario
+     * @param contrasegnia  Nueva contraseña del usuario
+     */
     public static void modificarDatosUsuario(String cedulaUsuario, String nombre, int edad, String sexo, String dependencia, String titulo, String contrasegnia) {
-        // Buscar el usuario por su cédula
         for (User user : usersList) {
             if (user.getCedula().equals(cedulaUsuario)) {
                 // Modificar los datos del usuario
@@ -127,10 +187,18 @@ public class BBDD {
             }
         }
     }
-    
-    // Modificar datos de una tarea
+
+    /**
+     * Modificar los datos de una tarea existente.
+     * 
+     * @param idTarea      ID de la tarea a modificar
+     * @param nombre       Nuevo nombre de la tarea
+     * @param descripcion  Nueva descripción de la tarea
+     * @param costo        Nuevo costo de la tarea
+     * @param fechaInicial Nueva fecha de inicio de la tarea
+     * @param fechaFinal   Nueva fecha de finalización de la tarea
+     */
     public static void modificarTarea(String idTarea, String nombre, String descripcion, int costo, Date fechaInicial, Date fechaFinal) {
-        // Buscar la tarea por su ID
         for (Tarea tarea : tareasList) {
             if (tarea.getIdTarea().equals(idTarea)) {
                 // Modificar los datos de la tarea
@@ -144,9 +212,15 @@ public class BBDD {
         }
     }
 
-    // Modificar datos de una actividad
+    /**
+     * Modificar los datos de una actividad existente.
+     * 
+     * @param idActividad  ID de la actividad a modificar
+     * @param descripcion  Nueva descripción de la actividad
+     * @param fechaInicial Nueva fecha de inicio de la actividad
+     * @param fechaFinal   Nueva fecha de finalización de la actividad
+     */
     public static void modificarActividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal) {
-        // Buscar la actividad por su ID
         for (Actividad actividad : actividadesList) {
             if (actividad.getIdActividad().equals(idActividad)) {
                 // Modificar los datos de la actividad
@@ -158,9 +232,18 @@ public class BBDD {
         }
     }
 
-    // Modificar datos de un proyecto
+    /**
+     * Modificar los datos de un proyecto existente.
+     * 
+     * @param idProyecto  ID del proyecto a modificar
+     * @param duracion    Nueva duración del proyecto
+     * @param descripcion Nueva descripción del proyecto
+     * @param encargado   Nueva persona encargada del proyecto
+     * @param fechaInicio Nueva fecha de inicio del proyecto
+     * @param fechaFinal  Nueva fecha de finalización del proyecto
+     * @param presupuesto Nuevo presupuesto del proyecto
+     */
     public static void modificarProyecto(String idProyecto, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
-        // Buscar el proyecto por su ID
         for (Proyecto proyecto : proyectosList) {
             if (proyecto.getIdProyecto().equals(idProyecto)) {
                 // Modificar los datos del proyecto
@@ -175,34 +258,37 @@ public class BBDD {
         }
     }
 
-
-    
     // ----------------------------------- FUNCIONALIDADES -------------------------------------------
-    
-    
-    // Agregar persona a un proyecto
+
+    /**
+     * Agregar una persona a un proyecto.
+     * 
+     * @param cedulaPersona Cédula de la persona a agregar
+     * @param idProyecto    ID del proyecto
+     */
     public static void agregarPersonaAProyecto(String cedulaPersona, String idProyecto) {
-        // Buscar el proyecto por su ID
         for (Proyecto proyecto : proyectosList) {
             if (proyecto.getIdProyecto().equals(idProyecto)) {
-                // Verificar si la persona ya está en el proyecto
                 if (!proyecto.getPersonal().contains(cedulaPersona)) {
-                    // Si no está, agregarla
+                    // Si la persona no está en el proyecto, agregarla
                     proyecto.getPersonal().add(cedulaPersona);
                 }
                 return; // Salir del método una vez agregada la persona al proyecto
             }
         }
     }
-    
-    // Agregar proyecto a un usuario
+
+    /**
+     * Agregar un proyecto a un usuario.
+     * 
+     * @param cedulaUsuario Cédula del usuario
+     * @param idProyecto    ID del proyecto a agregar
+     */
     public static void agregarProyectoAUsuario(String cedulaUsuario, String idProyecto) {
-        // Buscar el usuario por su cédula
         for (User user : usersList) {
             if (user.getCedula().equals(cedulaUsuario)) {
-                // Verificar si el proyecto ya está asociado al usuario
                 if (!user.getProyectos().contains(idProyecto)) {
-                    // Si no está, agregarlo
+                    // Si el proyecto no está asociado al usuario, agregarlo
                     user.getProyectos().add(idProyecto);
                 }
                 return; // Salir del método una vez agregado el proyecto al usuario
@@ -210,14 +296,17 @@ public class BBDD {
         }
     }
 
-    // Agregar actividad a un proyecto
+    /**
+     * Agregar una actividad a un proyecto.
+     * 
+     * @param idProyecto   ID del proyecto
+     * @param idActividad  ID de la actividad a agregar
+     */
     public static void agregarActividadAProyecto(String idProyecto, String idActividad) {
-        // Buscar el proyecto por su ID
         for (Proyecto proyecto : proyectosList) {
             if (proyecto.getIdProyecto().equals(idProyecto)) {
-                // Verificar si la actividad ya está en el proyecto
                 if (!proyecto.getActividades().contains(idActividad)) {
-                    // Si no está, agregarla
+                    // Si la actividad no está en el proyecto, agregarla
                     proyecto.getActividades().add(idActividad);
                 }
                 return; // Salir del método una vez agregada la actividad al proyecto
@@ -225,14 +314,17 @@ public class BBDD {
         }
     }
 
-    // Agregar tarea a una actividad
+    /**
+     * Agregar una tarea a una actividad.
+     * 
+     * @param idActividad ID de la actividad
+     * @param idTarea     ID de la tarea a agregar
+     */
     public static void agregarTareaAActividad(String idActividad, String idTarea) {
-        // Buscar la actividad por su ID
         for (Actividad actividad : actividadesList) {
             if (actividad.getIdActividad().equals(idActividad)) {
-                // Verificar si la tarea ya está en la actividad
                 if (!actividad.getTareas().contains(idTarea)) {
-                    // Si no está, agregarla
+                    // Si la tarea no está en la actividad, agregarla
                     actividad.getTareas().add(idTarea);
                 }
                 return; // Salir del método una vez agregada la tarea a la actividad
@@ -240,13 +332,14 @@ public class BBDD {
         }
     }
 
-    
-    
     // ----------------------------------- PREGUNTAS ----------------------------------- ---------------------
-    
-    // -------- PREGUNTA 1 -------- 
-    
-    // Consultar de un proyecto que actividades se han cumplido
+
+    /**
+     * Consultar las actividades cumplidas de un proyecto.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return Lista de IDs de actividades cumplidas
+     */
     public static ArrayList<String> consultarActividadesCumplidas(String idProyecto) {
         ArrayList<String> actividadesCumplidas = new ArrayList<>();
         for (Actividad actividad : actividadesList) {
@@ -256,8 +349,13 @@ public class BBDD {
         }
         return actividadesCumplidas;
     }
-    
-    // Consultar de un proyecto que actividades se no han cumplido 
+
+    /**
+     * Consultar las actividades no cumplidas de un proyecto.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return Lista de IDs de actividades no cumplidas
+     */
     public static ArrayList<String> consultarActividadesNoCumplidas(String idProyecto) {
         ArrayList<String> actividadesNoCumplidas = new ArrayList<>();
         for (Actividad actividad : actividadesList) {
@@ -268,7 +366,12 @@ public class BBDD {
         return actividadesNoCumplidas;
     }
 
-    // Consultar todas las tareas de una actividad
+    /**
+     * Obtener todas las tareas de una actividad.
+     * 
+     * @param idActividad ID de la actividad
+     * @return Lista de tareas correspondientes a la actividad
+     */
     public static ArrayList<Tarea> obtenerTareasDeActividad(String idActividad) {
         ArrayList<Tarea> tareasDeActividad = new ArrayList<>();
         for (Actividad actividad : actividadesList) {
@@ -284,9 +387,13 @@ public class BBDD {
         }
         return tareasDeActividad;
     }
-    
-    // Obtenermos la cantidad de tareas y la cantidad de tareas completadas y faltantes por actividad
-    // [cantidadDeTareas,tareasCompletadas,tareasFaltantes]
+
+    /**
+     * Consultar estadísticas de tareas de una actividad.
+     * 
+     * @param idActividad ID de la actividad
+     * @return Array con estadísticas [cantidad de tareas, tareas cumplidas, tareas no cumplidas]
+     */
     public static int[] consultarEstadisticasTareasDeActividad(String idActividad) {
         int[] estadisticas = new int[3]; // 0: total tareas, 1: tareas cumplidas, 2: tareas no cumplidas
         int totalTareas = 0;
@@ -314,10 +421,13 @@ public class BBDD {
 
         return estadisticas;
     }
-    
-    // -------- PREGUNTA 2 --------
-    
-    // Consultar todas las tareas del proyecto
+
+    /**
+     * Consultar todas las tareas de un proyecto.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return Lista de IDs de todas las tareas del proyecto
+     */
     public static ArrayList<String> consultarTodasTareas(String idProyecto) {
         ArrayList<String> todasTareas = new ArrayList<>();
         for (Actividad actividad : actividadesList) {
@@ -327,11 +437,13 @@ public class BBDD {
         }
         return todasTareas;
     }
-    
-    
-    // ------- PREGUTA 3 ---------
-    
-    // Consultar cuantas personas trabajan en el proyecto
+
+    /**
+     * Consultar la cantidad de personas que trabajan en un proyecto.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return Cantidad de personas trabajando en el proyecto
+     */
     public static int cantidadPersonasTrabajanProyecto(String idProyecto) {
         int cantidad = 0;
         for (Proyecto proyecto : proyectosList) {
@@ -342,8 +454,13 @@ public class BBDD {
         }
         return cantidad;
     }
-    
-    // Consultar personas que participan en el proyecto
+
+    /**
+     * Consultar las personas que participan en un proyecto.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return Lista de cédulas de personas que participan en el proyecto
+     */
     public static ArrayList<String> obtenerPersonasProyecto(String idProyecto) {
         ArrayList<String> personasProyecto = new ArrayList<>();
         for (Proyecto proyecto : proyectosList) {
@@ -355,10 +472,12 @@ public class BBDD {
         return personasProyecto;
     }
 
-    
-    // -------- PREGUNTA 4 ---------
-    
-    // Consultar la persona responsable del proyecto
+    /**
+     * Consultar la persona responsable de un proyecto.
+     * 
+     * @param idProyecto ID del proyecto
+     * @return Cédula de la persona responsable del proyecto
+     */
     public static String personaResponsableProyecto(String idProyecto) {
         String responsable = "";
         for (Proyecto proyecto : proyectosList) {
