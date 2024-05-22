@@ -6,8 +6,8 @@
 package ui.users;
 
 // mis paquetes
-import logic.RegisterLogic;
-import utils.Utilidades;
+import logic.user.RegisterLogic;
+import ui.utils.Utilidades;
 /**
  *
  * @author JESUS DANIEL
@@ -300,7 +300,7 @@ public class UserRegisterUI extends javax.swing.JFrame {
         login_jRadioButton_masculino.setActionCommand("Masculino");
         login_jRadioButton_femenino.setActionCommand("Femenino");
         login_jRadioButton_noBinario.setActionCommand("No binario");
-        utils.Utilidades.agregarPlaceholder(registrar_txt_cedula, "Ej. 1062959671");
+        Utilidades.agregarPlaceholder(registrar_txt_cedula, "Ej. 1062959671");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

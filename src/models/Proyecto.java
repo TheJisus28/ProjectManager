@@ -1,28 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Proyecto.java
 package models;
 
-/**
- *
- * @author JESUS DANIEL
- */
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Proyecto {
-    
-    private int idProyecto, duracion;
-    private String descripcion, fechaInicio,fechaFinal;
-    private double presupuesto;
+    String idProyecto;
+    int duracion;
+    String descripcion;
+    String encargado;
+    Date fechaInicio;
+    Date fechaFinal;
+    int presupuesto;
+    ArrayList<String> actividades;
+    ArrayList<String> personal;
 
-    
-    // setters and getters
+    public Proyecto(String idProyecto, int duracion, String descripcion, String encargado, Date fechaInicio, Date fechaFinal, int presupuesto) {
+        this.idProyecto = idProyecto;
+        this.duracion = duracion;
+        this.descripcion = descripcion;
+        this.encargado = encargado;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.presupuesto = presupuesto;
+        this.actividades = new ArrayList<>();
+        this.personal = new ArrayList<>();
+    }
 
-    public int getIdProyecto() {
+    public String getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(int idProyecto) {
+    public void setIdProyecto(String idProyecto) {
         this.idProyecto = idProyecto;
     }
 
@@ -42,29 +51,48 @@ public class Proyecto {
         this.descripcion = descripcion;
     }
 
-    public String getFechaInicio() {
+    public String getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(String encargado) {
+        this.encargado = encargado;
+    }
+
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFinal() {
+    public Date getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(String fechaFinal) {
+    public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
-    public double getPresupuesto() {
+    public int getPresupuesto() {
         return presupuesto;
     }
 
-    public void setPresupuesto(double presupuesto) {
+    public void setPresupuesto(int presupuesto) {
         this.presupuesto = presupuesto;
     }
 
-    
+    public ArrayList<String> getActividades() {
+        return actividades;
+    }
+
+    public void setActividades(ArrayList<String> actividades) {
+        this.actividades = actividades;
+    }
+
+    public ArrayList<String> getPersonal() {
+        return personal;
+    }
+        
 }

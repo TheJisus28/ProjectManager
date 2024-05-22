@@ -1,4 +1,4 @@
-package myPackage;
+
 import ui.users.UserLoginUI;
 
 /**
@@ -7,6 +7,8 @@ import ui.users.UserLoginUI;
  */
 
 public class Main {
+    static String usuarioActual;
+    
     public static void main(String[] args) {
         new UserLoginUI().setVisible(true);
     }

@@ -7,7 +7,7 @@ package ui.users;
 
 // mis paquetes
 import ui.HomeUI;
-import utils.Utilidades;
+import ui.utils.Utilidades;
 
 /**
  *
@@ -165,7 +165,7 @@ public class UserLoginUI extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        utils.Utilidades.agregarPlaceholder(login_txt_usuario, " Ingrese su cedula");
+        Utilidades.agregarPlaceholder(login_txt_usuario, " Ingrese su cedula");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,6 +188,7 @@ public class UserLoginUI extends javax.swing.JFrame {
 
     private void login_btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn_ingresarActionPerformed
         // Acciones del boton ingresar
+        
         
         
         HomeUI homeUi = new HomeUI();

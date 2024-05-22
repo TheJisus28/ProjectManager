@@ -1,28 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
-/**
- *
- * @author JESUS DANIEL
- */
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Actividad {
-    
-    private int idActividad;
-    private String descripcion, fechaInicial, fechaFinal;
-    private int idProyecto;
+    private String idActividad;
+    private String descripcion;
+    private Date fechaInicial;
+    private Date fechaFinal;
+    private String idProyecto;
+    private boolean estado; 
 
-    
-    // setters and getters
+    // Constructor
+    public Actividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal, String idProyecto) {
+        this.idActividad = idActividad;
+        this.descripcion = descripcion;
+        this.fechaInicial = fechaInicial;
+        this.fechaFinal = fechaFinal;
+        this.idProyecto = idProyecto;
+        this.estado = false; // Inicialmente en desarrollo
+    }
 
-    public int getIdActividad() {
+    // Getters y Setters
+    public String getIdActividad() {
         return idActividad;
     }
 
-    public void setIdActividad(int idActividad) {
+    public void setIdActividad(String idActividad) {
         this.idActividad = idActividad;
     }
 
@@ -34,29 +39,40 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public String getFechaInicial() {
+    public Date getFechaInicial() {
         return fechaInicial;
     }
 
-    public void setFechaInicial(String fechaInicial) {
+    public void setFechaInicial(Date fechaInicial) {
         this.fechaInicial = fechaInicial;
     }
 
-    public String getFechaFinal() {
+    public Date getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(String fechaFinal) {
+    public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
-    public int getIdProyecto() {
+    public String getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(int idProyecto) {
+    public void setIdProyecto(String idProyecto) {
         this.idProyecto = idProyecto;
     }
 
-    
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public List<String> getTareas() {
+        // Suponiendo que hay un método para obtener las tareas asociadas
+        return new ArrayList<>();
+    }
 }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
+package logic.user;
 import data.BBDD;
-import utils.Utilidades;
+import logic.Validators;
+import ui.utils.Utilidades;
 
 /**
  *

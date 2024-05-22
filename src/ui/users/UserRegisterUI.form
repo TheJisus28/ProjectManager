@@ -343,7 +343,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrar_txt_cedulaActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="utils.Utilidades.agregarPlaceholder(registrar_txt_cedula, &quot;Ej. 1062959671&quot;);"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="Utilidades.agregarPlaceholder(registrar_txt_cedula, &quot;Ej. 1062959671&quot;);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="login_lbl_usuario6">

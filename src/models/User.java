@@ -1,23 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// User.java
 package models;
 
-/**
- *
- * @author JESUS DANIEL
- */
+import java.util.ArrayList;
+
 public class User {
-    
-    private String cedula;
-    private int edad;
-    private String nombre;
-    private String sexo;
-    private String dependencia;
-    private String titulo;
-    private String contrasegnia;
+    String cedula;
+    String nombre;
+    int edad;
+    String sexo;
+    String dependencia;
+    String titulo;
+    String contrasegnia;
+    ArrayList<String> proyectos;
+
+    public User(String cedula, int edad, String sexo, String dependencia, String titulo, String contrasegnia) {
+        this.cedula = cedula;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.dependencia = dependencia;
+        this.titulo = titulo;
+        this.contrasegnia = contrasegnia;
+        this.proyectos = new ArrayList<>();
+    }
 
     public String getCedula() {
         return cedula;
@@ -27,20 +31,22 @@ public class User {
         this.cedula = cedula;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
     public String getSexo() {
@@ -74,4 +80,9 @@ public class User {
     public void setContrasegnia(String contrasegnia) {
         this.contrasegnia = contrasegnia;
     }
+
+    public ArrayList<String> getProyectos() {
+        return proyectos;
+    }    
+    
 }
