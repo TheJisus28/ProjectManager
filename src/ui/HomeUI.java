@@ -17,14 +17,12 @@ public class HomeUI extends javax.swing.JFrame {
      * Creates new form HomeUI
      */
     private String cedulaUsuario;
-    User user = BBDD.obtenerUsuarioPorCedula(cedulaUsuario); // Obtener el usuario por su cédula
-    
-    private String nombreUsuario = user.getNombre();
+    private String nombreUsuario;
     
     public HomeUI(String cedula) {
         cedulaUsuario = cedula;
+        nombreUsuario = BBDD.obtenerUsuarioPorCedula(cedulaUsuario).getNombre();
         initComponents();
-        System.out.println(nombreUsuario);
 
     }
        
@@ -255,5 +253,4 @@ public class HomeUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_home;
     // End of variables declaration//GEN-END:variables
     
-
 }

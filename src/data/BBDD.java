@@ -28,14 +28,13 @@ public class BBDD {
      * @return -1 si el usuario ya existe, 1 si se registra exitosamente
      */
     public static int registerUser(String cedula,String nombre, int edad, String sexo, String dependencia, String titulo , String contrasegnia) {
-        System.out.println("Datos recibidos en registerUser, cedula" + cedula + " nombre: " + nombre + " edad: " + edad);
         if (obtenerUsuarioPorCedula(cedula) != null) {
             return -1; // Si la cédula ya existe, retornar -1 indicando error
             
         }
 
         User newUser = new User(cedula, nombre, edad, sexo, dependencia, titulo, contrasegnia); // Crear un nuevo usuario
-        System.out.println("usuario:" + newUser.getNombre() + " con cedula: " + newUser.getCedula() + "y edad: "+ newUser.getEdad() + " almacenado");
+        System.out.println("usuario:" + newUser.getNombre() + " con cedula: " + newUser.getCedula() + " y edad: "+ newUser.getEdad() + " almacenado");
         usersList.add(newUser); // Almacenar usuario en la lista
         return 1; // Retornar 1 indicando éxito
     }
@@ -47,15 +46,12 @@ public class BBDD {
      * @return El usuario correspondiente a la cédula, o null si no se encuentra
      */
     public static User obtenerUsuarioPorCedula(String cedula) {
-        System.out.println("En obtenerUsusarioPorCedula");
         for (User user : usersList) {
             System.out.println(user.getCedula());
             if (user.getCedula().equals(cedula)) {
-                System.out.print("Encontrado");
                 return user;
             }
         }
-        System.out.print("no Encontrado");
         return null; // Retornar null si el usuario no se encuentra
     }
 

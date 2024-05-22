@@ -1,7 +1,5 @@
 
-import data.BBDD;
 import logic.user.RegisterLogic;
-import models.User;
 import ui.users.UserLoginUI;
 
 /**
@@ -14,7 +12,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Creamos un nuevo usuario con los datos deseados para Jesus Carracal
-        String nombreJesus = "Jesus Carracal";
+        String nombreJesus = "Jesus Carrascal";
         String edadJesus = "25";
         String sexoJesus = "Masculino";
         String dependenciaJesus = "Departamento";
@@ -22,19 +20,13 @@ public class Main {
         String cedulaJesus = "123";
         String contrasenaJesus = "123";
 
-        // Registramos el usuario Jesus Carracal
-        int registrado = RegisterLogic.registrarUsuario(cedulaJesus,nombreJesus, edadJesus, sexoJesus, dependenciaJesus, tituloJesus, contrasenaJesus, contrasenaJesus);
+        // Registramos el usuario Jesus Carrascal
+        RegisterLogic.registrarUsuario(cedulaJesus,nombreJesus, edadJesus, sexoJesus, dependenciaJesus, tituloJesus, contrasenaJesus, contrasenaJesus);
+
         
-        if(registrado ==1){
-            System.out.println("valor de registrado: " + registrado);
-            User user = BBDD.obtenerUsuarioPorCedula("123"); // Obtener el usuario por su cédula
-            System.out.println("mostramos el nombre: " + user.getNombre());
-        }
-        
-        /**
          // Creamos un nuevo usuario con los datos deseados para Maria
-        String nombreMaria = "Maria";
-        int edadMaria = 30; // Asumiendo una edad para el ejemplo
+        String nombreMaria = "Maria Rodriguez";
+        String edadMaria = "30"; // Asumiendo una edad para el ejemplo
         String sexoMaria = "Femenino";
         String dependenciaMaria = "Departamento";
         String tituloMaria = "Título";
@@ -42,9 +34,9 @@ public class Main {
         String contrasenaMaria = "321";
 
         // Registramos el usuario Maria pasando los datos directamente al constructor
-        RegisterLogic.registrarUsuario(nombreMaria, Integer.toString(edadMaria), sexoMaria, dependenciaMaria, tituloMaria, cedulaMaria, contrasenaMaria, contrasenaMaria);
+        RegisterLogic.registrarUsuario(cedulaMaria,nombreMaria,edadMaria,sexoMaria,dependenciaMaria,tituloMaria,contrasenaMaria,contrasenaMaria);
          
-         */
+         
         
            
         new UserLoginUI().setVisible(true);
