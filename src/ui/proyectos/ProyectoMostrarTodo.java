@@ -5,6 +5,9 @@
  */
 package ui.proyectos;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import ui.HomeUI;
 import data.BBDD;
 import java.util.List;
@@ -329,7 +332,16 @@ public class ProyectoMostrarTodo extends javax.swing.JFrame {
         mostrar_nombre_proyecto.setText(BBDD.obtenerProyectoPorId(idProyecto).getNombre());
         mostrar_id_proyecto.setText(BBDD.obtenerProyectoPorId(idProyecto).getIdProyecto());
         mostrar_numero_trabajadores.setText(String.valueOf(BBDD.cantidadPersonasTrabajanProyecto(idProyecto)));
-        mostrar_persona_responsable.setText(BBDD.personaResponsableProyecto(idProyecto));
+        mostrar_persona_responsable.setText(BBDD.personaResponsableProyecto(idProyecto).getNombre());
+        // Crear un objeto SimpleDateFormat con el formato deseado
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+
+        // Convertir la fecha a String
+        String fechaStr = formato.format(BBDD.obtenerProyectoPorId(idProyecto).getFechaInicio());
+        mostrar_fecha_inicio.setText(fechaStr);
+        // Convertir la fecha a String
+        String fechaFinalStr = formato.format(BBDD.obtenerProyectoPorId(idProyecto).getFechaFinal());
+        mostrar_fecha_final.setText(fechaFinalStr);
         mostrar_descripcion.setText(BBDD.obtenerProyectoPorId(idProyecto).getDescripcion());
         mostrar_presupuesto.setText(String.valueOf(BBDD.obtenerProyectoPorId(idProyecto).getPresupuesto()));
 
@@ -461,6 +473,7 @@ public class ProyectoMostrarTodo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void crear_proyecto_btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear_proyecto_btn_regresarActionPerformed

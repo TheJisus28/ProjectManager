@@ -1,10 +1,13 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Actividad {
+public class Actividad implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     private String idActividad;
     private String descripcion;
     private Date fechaInicial;
@@ -12,6 +15,7 @@ public class Actividad {
     private String idProyecto;
     private boolean estado;
     private List<String> tareas; // Lista de IDs de tareas
+    
 
     // Constructor
     public Actividad(String idActividad, String descripcion, Date fechaInicial, Date fechaFinal, String idProyecto) {

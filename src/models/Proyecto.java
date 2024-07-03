@@ -1,10 +1,14 @@
 // Proyecto.java
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
 
-public class Proyecto {
+public class Proyecto implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     String idProyecto;
     String nombre; // Nueva variable nombre
     int duracion;
@@ -27,6 +31,7 @@ public class Proyecto {
         this.presupuesto = presupuesto;
         this.actividades = new ArrayList<>();
         this.personal = new ArrayList<>();
+        calcularFechaFinal();
     }
 
     public String getIdProyecto() {
@@ -103,5 +108,13 @@ public class Proyecto {
 
     public ArrayList<String> getPersonal() {
         return personal;
+    }
+    
+    // Método para calcular la fecha final basado en la fecha de inicio y duración en días
+    private void calcularFechaFinal() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(this.fechaInicio);
+        calendar.add(Calendar.DAY_OF_YEAR, this.duracion);
+        this.fechaFinal = calendar.getTime();
     }
 }

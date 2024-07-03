@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -354,7 +354,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrar_persona_responsableActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mostrar_persona_responsable.setText(BBDD.personaResponsableProyecto(idProyecto));"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="mostrar_persona_responsable.setText(BBDD.personaResponsableProyecto(idProyecto).getNombre());"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="login_lbl_usuario8">
@@ -369,6 +369,9 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrar_fecha_inicioActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="// Crear un objeto SimpleDateFormat con el formato deseado&#xa;SimpleDateFormat formato = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);&#xa;&#xa;// Convertir la fecha a String&#xa;String fechaStr = formato.format(BBDD.obtenerProyectoPorId(idProyecto).getFechaInicio());&#xa;mostrar_fecha_inicio.setText(fechaStr);"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="login_lbl_usuario9">
                   <Properties>
@@ -390,6 +393,9 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrar_fecha_finalActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="// Convertir la fecha a String&#xa;String fechaFinalStr = formato.format(BBDD.obtenerProyectoPorId(idProyecto).getFechaFinal());&#xa;mostrar_fecha_final.setText(fechaFinalStr);"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="login_lbl_usuario11">
                   <Properties>

@@ -1,8 +1,11 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Tarea {
+public class Tarea implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private String idTarea;
     private String nombre;
     private String descripcion;

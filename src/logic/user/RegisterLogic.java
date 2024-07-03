@@ -69,10 +69,17 @@ public class RegisterLogic {
             UiUtilidades.mostrarVentana("Las contraseñas no coinciden", ventanaTitulo);
             return -1;
         }
+        
+        // Verificar que ya esta cedula no esté en uso
+        
       
         // Fin de validaciones, regitramos usuario.
         
-        return BBDD.registerUser(cedula,nombre, edad, sexo, dependencia, titulo , contrasegnia);
+        if (BBDD.registerUser(cedula,nombre, edad, sexo, dependencia, titulo , contrasegnia) == -1){
+            UiUtilidades.mostrarVentana("Ya existe un usuario registrado con esta cedula", ventanaTitulo);
+            return -1;
+        } 
         
+        return 1;
      }
 }
